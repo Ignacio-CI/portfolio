@@ -1,5 +1,5 @@
 ---
-const { href, openInNewTab = false } = Astro.props;
+const { href, openInNewTab = false, className } = Astro.props;
 ---
 
 <a href={href} target={openInNewTab ? '_blank' : '_self'}>
@@ -9,5 +9,7 @@ const { href, openInNewTab = false } = Astro.props;
 <style>
     a {
         text-decoration: none;
+        color: var(--deep-slate);
+        font-weight: 500;
     }
 </style>

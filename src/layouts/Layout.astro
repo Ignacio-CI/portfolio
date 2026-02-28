@@ -1,23 +1,134 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/jetbrains-mono';
+
+import Link from '../components/Link.astro';
+
+const { title = 'Ignace | Frontend Software Engineer' } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>Ignace.dev</title>
+        <title>{title}</title>
     </head>
     <body>
-        <slot />
+        <nav>
+            <div class="brand">
+                <span class="logo-i">I</span>
+            </div>
+            <ul class="nav-links">
+                <li><Link href="/">The Void</Link></li>
+                <li><Link href="#projects">Projects</Link></li>
+                <li><Link href="#about">About</Link></li>
+                <li><Link href="#contact">Contact</Link></li>
+            </ul>
+        </nav>
+        <main>
+            <slot />
+        </main>
+        <footer>
+            <p>© 2026 Ignace. All rights reserved.</p>
+        </footer>
     </body>
 </html>
 
-<style>
+<style is:global>
+    :root {
+        --off-white: #fcfcfc;
+        --deep-slate: #121212;
+        --electric-indigo: #4f46e5;
+        --ui-border: rgba(18, 18, 18, 0.1);
+
+        --font-sans: 'Inter Variable', sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-md: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --font-size-4xl: 2.25rem;
+    }
+
     html,
     body {
         margin: 0;
+        padding: 0;
         width: 100%;
-        height: 100%;
+        min-height: 100%;
+        box-sizing: border-box;
+        background-color: var(--off-white);
+        color: var(--deep-slate);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        border-bottom: 0.5px solid var(--ui-border);
+        background-color: rgba(252, 252, 252, 0.8);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .brand h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .logo-i {
+        font-family: var(--font-mono);
+        background: var(--deep-slate);
+        color: var(--off-white);
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-decoration: none;
+        color: var(--deep-slate);
+        text-transform: lowercase;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        opacity: 1;
+        color: var(--electric-indigo);
     }
 </style>

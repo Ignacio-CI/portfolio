@@ -1,0 +1,32 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import type { Project } from "../types/project";
+
+const { projects } = Astro.props;
+---
+
+<article class="project-card-container">
+   {projects.map((project: Project) => (
+    <ProjectCard
+        title={project.title}
+        subtitle={project.subtitle}
+        content={project.content}
+        image={project.image}
+        status={project.status}
+        link={project.link}
+        company={project.company}
+        companyLink={project.companyLink}
+        tags={project.tags}
+    />
+   ))}
+</article>
+
+<style>
+    .project-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+</style>

@@ -1,0 +1,108 @@
+---
+import type { Project } from '../types/project';
+
+type Props = Project;
+
+const { title, subtitle, content, image, link, tags, status, company, companyLink }: Props = Astro.props;
+
+const svgs = import.meta.glob<{ default: any }>('/src/assets/*.svg', { eager: true });
+
+const filename = image.split('/').pop();
+
+const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null;
+---
+
+<div class="project-card">
+    <h2>{title}</h2>
+    {company && <a href={companyLink} target="_blank">{company}</a>}
+    <div class="project-card-header">
+        <p>{subtitle}</p>
+        <span class="project-status-badge">{status}</span>
+    </div>
+    <p class="project-content">{content}</p>
+    {LogoComponent && <LogoComponent />}
+    <div class="tags">
+        {tags.map((tag: string) => (
+            <span class="tag">{tag}</span>
+        ))}
+    </div>
+    <a href={link} target="_blank">View Project _</a>
+</div>
+
+<style>
+    .project-card {
+        border: 1px solid var(--ui-border);
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 8px;
+        background-color: var(--off-white);
+        color: var(--deep-slate);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-card h2 {
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .project-card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .project-status-badge {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-xs);
+        border: 1px solid var(--ui-border);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+        color: var(--deep-slate);
+        background-color: var(--ui-border);
+    }
+
+    .project-content {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
+        margin: 0;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .project-card a {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        text-decoration: none;
+        color: var(--deep-slate);
+    }
+
+    .project-card a:hover {
+        color: var(--electric-indigo);
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        font-size: var(--font-size-xs);
+        font-family: var(--font-sans);
+        color: var(--deep-slate);
+        background-color: var(--off-white);
+        border: 1px solid var(--ui-border);
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+    }
+</style>

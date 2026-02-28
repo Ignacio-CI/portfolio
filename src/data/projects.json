@@ -1,0 +1,36 @@
+[
+    {
+        "id": "agarsteget",
+        "title": "Ägarsteget.se",
+        "subtitle": "AI-Driven Web System",
+        "content": "Ägarsteget.se is an AI-driven project designed to facilitate business ownership transfers for small and medium-sized enterprises in northern Sweden. The project addresses a critical challenge faced by many aging business owners (such as craftsmen in carpentry or masonry) who are approaching retirement.",
+        "company": "Connect Norr",
+        "companyLink": "https://connectsverige.se/norr/",
+        "image": "../assets/agarsteget.svg",
+        "status": "production",
+        "link": "https://agarsteget.se",
+        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Firebase", "DigitalOcean"]
+    },
+    {
+        "id": "coompass",
+        "title": "Coompass",
+        "subtitle": "AI-Driven Web System",
+        "content": "A free, regionally adapted AI-supported web platform that helps social enterprises and cooperatives find financing, measure social and economic impact, and develop sustainable business models.",
+        "company": "Coompanion",
+        "companyLink": "https://coompanion.se/",
+        "image": "../assets/coompass.svg",
+        "status": "mvp",
+        "link": "https://coompass.coop",
+        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Firebase", "DigitalOcean"]
+    },
+    {
+        "id": "around",
+        "title": "Around",
+        "subtitle": "Sustainable Fashion System",
+        "content": "Content 3",
+        "image": "../assets/around.svg",
+        "status": "development",
+        "link": "#",
+        "tags": ["React", "Echarts", "TypeScript", "TailwindCSS", "Azure"]
+    }
+]

@@ -1,0 +1,13 @@
+---
+const { href, openInNewTab = false } = Astro.props;
+---
+
+<a href={href} target={openInNewTab ? '_blank' : '_self'}>
+    <slot />
+</a>
+
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

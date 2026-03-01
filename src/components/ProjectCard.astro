@@ -12,25 +12,36 @@ const filename = image.split('/').pop();
 const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null;
 ---
 
-<div class="project-card">
-    <h2>{title}</h2>
-    {company && <a href={companyLink} target="_blank">{company}</a>}
-    <div class="project-card-header">
-        <p>{subtitle}</p>
-        <span class="project-status-badge">{status}</span>
+<div class="card">
+    <div class="card__header">
+        <h2>{title}</h2>
+        {company && <a href={companyLink} target="_blank">{company}</a>}
+        <div class="card__header-subtitle">
+            <p>{subtitle}</p>
+            <span class:list={[
+                "status-badge",
+                { prod: status === 'production' }, 
+                { mvp: status === 'mvp' }, 
+                { dev: status === 'development' }, 
+            ]}>{status}</span>
+        </div>
     </div>
-    <p class="project-content">{content}</p>
-    {LogoComponent && <LogoComponent />}
+    <p class="content">{content}</p>
+    <div class="logo">
+        {LogoComponent && <LogoComponent />}
+    </div>
     <div class="tags">
         {tags.map((tag: string) => (
             <span class="tag">{tag}</span>
         ))}
     </div>
-    <a href={link} target="_blank">View Project _</a>
+    <a href={link} target="_blank">View Project_</a>
 </div>
 
 <style>
-    .project-card {
+    .card {
+        width: 400px;
+        height: auto;
         border: 1px solid var(--ui-border);
         padding: 1rem;
         margin: 1rem;
@@ -39,16 +50,29 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         color: var(--deep-slate);
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        align-items: start; 
         gap: 1rem;
     }
 
-    .project-card h2 {
+    .card h2 {
         font-size: var(--font-size-2xl);
         font-weight: 600;
         margin: 0;
     }
 
-    .project-card-header {
+    .card a {
+        width: fit-content;
+    }
+
+    .card__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 1rem;
+    }
+
+    .card__header-subtitle {
         display: flex;
         flex-direction: row;
         justify-content: start;
@@ -56,29 +80,44 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         gap: 1rem;
     }
 
-    .project-status-badge {
+    .status-badge {
         font-family: var(--font-mono);
         font-size: var(--font-size-xs);
         border: 1px solid var(--ui-border);
         padding: 0.25rem 0.5rem;
         border-radius: 10px;
         color: var(--deep-slate);
-        background-color: var(--ui-border);
     }
 
-    .project-content {
+    .prod {
+        background-color: oklch(92.5% 0.084 155.995);
+        border: 1px solid oklch(72.3% 0.219 149.579);
+    }
+
+    .mvp {
+        background-color: oklch(96.2% 0.059 95.617);
+        border: 1px solid oklch(76.9% 0.188 70.08);
+    }
+
+    .dev {
+        background-color: oklch(95.1% 0.026 236.824);
+        border: 1px solid oklch(68.5% 0.169 237.323);
+    }
+    
+    .content {
+        height: 100%;
         font-family: var(--font-mono);
         font-size: var(--font-size-sm);
         margin: 0;
     }
 
-    .project-card img {
+    .card img {
         width: 100%;
         height: auto;
         border-radius: 8px;
     }
 
-    .project-card a {
+    .card a {
         font-family: var(--font-mono);
         font-size: var(--font-size-xs);
         text-transform: uppercase;
@@ -87,12 +126,20 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         color: var(--deep-slate);
     }
 
-    .project-card a:hover {
+    .card a:hover {
         color: var(--electric-indigo);
+    }
+
+    .logo {
+        display: none;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
     }
 
     .tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
     }
 

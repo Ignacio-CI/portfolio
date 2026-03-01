@@ -57,13 +57,16 @@ const { title = 'Ignace | Frontend Software Engineer' } = Astro.props;
         --font-size-4xl: 2.25rem;
     }
 
+    * {
+        box-sizing: border-box;
+    }
+
     html,
     body {
         margin: 0;
         padding: 0;
         width: 100%;
         min-height: 100%;
-        box-sizing: border-box;
         background-color: var(--off-white);
         color: var(--deep-slate);
         font-family: var(--font-sans);

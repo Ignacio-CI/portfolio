@@ -27,10 +27,12 @@
         "id": "around",
         "title": "Around",
         "subtitle": "Sustainable Fashion System",
-        "content": "Content 3",
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+        "company": "Around Systems",
+        "companyLink": "#",
         "image": "../assets/around.svg",
         "status": "development",
         "link": "#",
-        "tags": ["React", "Echarts", "TypeScript", "TailwindCSS", "Azure"]
+        "tags": ["React", "Echarts", "TypeScript", "TailwindCSS", "TanStack Query", "Azure"]
     }
 ]

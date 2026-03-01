@@ -9,7 +9,7 @@
         "image": "../assets/agarsteget.svg",
         "status": "production",
         "link": "https://agarsteget.se",
-        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Firebase", "DigitalOcean"]
+        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Node.js", "Firebase", "DigitalOcean"]
     },
     {
         "id": "coompass",
@@ -21,7 +21,7 @@
         "image": "../assets/coompass.svg",
         "status": "mvp",
         "link": "https://coompass.coop",
-        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Firebase", "DigitalOcean"]
+        "tags": ["SvelteKit", "OpenAI API", "TypeScript", "TailwindCSS", "Node.js", "Firebase", "DigitalOcean"]
     },
     {
         "id": "around",

@@ -1,0 +1,63 @@
+---
+import Link from "@components/Link.astro";
+---
+
+<nav>
+    <div class="brand">
+        <span class="logo-i">I</span>
+    </div>
+    <ul class="nav-links">
+        <li><Link href="/">The Void</Link></li>
+        <li><Link href="#projects">Projects</Link></li>
+        <li><Link href="#about">About</Link></li>
+        <li><Link href="#contact">Contact</Link></li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5em 2em;
+        border-bottom: 0.5px solid var(--ui-border);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: var(--gap-3);
+    }
+
+    .logo-i {
+        font-family: var(--ff-mono);
+        background: var(--clr-black);
+        color: var(--clr-white);
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--text-xs);
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* .nav-links a {
+        
+        font-family: var(--ff-mono);
+        font-size: var(--text-xs);
+        text-decoration: none;
+        text-transform: lowercase;
+    } */
+</style>

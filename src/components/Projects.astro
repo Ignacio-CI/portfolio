@@ -1,46 +1,46 @@
 ---
 import ProjectCardContainer from "@components/ProjectCardContainer.astro";
 import Section from "@layouts/Section.astro";
-import projects from "@data/projects.json";
+import projects from "@data/projects.json" assert { type: "json" };
 ---
 
 <Section id="projects">
-    <article class="projects-wrapper">
-        <div class="projects-header">
+    <article class="projects__wrapper">
+        <div class="projects__header">
             <h1>PROJECTS</h1>
             <p>Some of my projects</p>
         </div>
         <ProjectCardContainer projects={projects} />
     </article>
-</section>
+</Section>
 
 <style>
-    .projects-wrapper {
+    .projects__wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    .projects-header {
+    .projects__header {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        padding: 1rem;
+        gap: var(--gap-2);
+        padding: 1em;
     }
 
-    .projects-header h1 {
-        font-size: 2rem;
-        font-weight: 600;
+    .projects__header h1 {
+        font-size: var(--text-2xl);
+        font-weight: 700;
         margin: 0;
     }
 
-    .projects-header p {
-        font-family: var(--font-mono);
-        font-size: 1rem;
-        color: var(--slate-muted);
+    .projects__header p {
+        font-family: var(--ff-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
         margin: 0;
     }
 </style>

@@ -35,7 +35,7 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
             <span class="tag">{tag}</span>
         ))}
     </div>
-    <a href={link} target="_blank">View Project_</a>
+    <a class="project-link" href={link} target="_blank">View Project_</a>
 </div>
 
 <style>
@@ -80,10 +80,6 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         margin: 0;
     }
 
-    .card a {
-        width: fit-content;
-    }
-
     .card__header {
         display: flex;
         flex-direction: column;
@@ -98,6 +94,13 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         align-items: center;
         gap: 1rem;
         overflow: visible;
+    }
+
+    .card__header-subtitle p {
+        margin: 0;
+        font-size: var(--text-md);
+        font-weight: 600;
+        color: var(--text-secondary);
     }
 
     .status-badge {
@@ -116,8 +119,8 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
     }
 
     .mvp {
-        background-color: var(--clr-amber-100);
-        border: 1px solid var(--clr-amber-500);
+        background-color: var(--clr-brand-100);
+        border: 1px solid var(--clr-brand-500);
     }
 
     .dev {
@@ -140,6 +143,7 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
     }
 
     .card a {
+        width: fit-content;
         font-family: var(--ff-mono);
         font-size: var(--text-xs);
         text-transform: uppercase;
@@ -148,10 +152,14 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         color: var(--clr-black);
     }
 
+    .card a:hover {
+        color: var(--clr-brand-600);
+    }
+
     .logo {
-        display: none;
-        width: 100%;
-        height: auto;
+        /* display: none; */
+        width: 16px;
+        height: 16px;
         border-radius: 8px;
     }
 
@@ -164,9 +172,8 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
     .tag {
         font-size: var(--text-xs);
         font-family: var(--ff-sans);
-        color: var(--clr-black);
-        background-color: var(--clr-white);
-        border: 1px solid var(--ui-border);
+        font-weight: 500;
+        border: 1px solid var(--clr-amber-500);
         border-radius: 4px;
         padding: 0.25rem 0.5rem;
     }

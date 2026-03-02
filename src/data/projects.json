@@ -2,8 +2,8 @@
     {
         "id": "agarsteget",
         "title": "Ägarsteget.se",
-        "subtitle": "AI-Driven Web System",
-        "content": "Ägarsteget.se is an AI-driven project designed to facilitate business ownership transfers for small and medium-sized enterprises in northern Sweden. The project addresses a critical challenge faced by many aging business owners (such as craftsmen in carpentry or masonry) who are approaching retirement.",
+        "subtitle": "AI-powered platform",
+        "content": "AI-driven platform designed to help business owners prepare for a successful ownership transition. The solution combines clear guidance around ownership change with a tailored AI assistant that supports entrepreneurs in navigating complex questions related to exit readiness.",
         "company": "Connect Norr",
         "companyLink": "https://connectsverige.se/norr/",
         "image": "../assets/agarsteget.svg",
@@ -14,8 +14,8 @@
     {
         "id": "coompass",
         "title": "Coompass",
-        "subtitle": "AI-Driven Web System",
-        "content": "A free, regionally adapted AI-supported web platform that helps social enterprises and cooperatives find financing, measure social and economic impact, and develop sustainable business models.",
+        "subtitle": "AI-driven support ecosystem",
+        "content": "AI-supported web platform that helps social enterprises and cooperatives find financing, measure social and economic impact, and develop sustainable business models, reducing administrative burden, improving transparency and impact data quality, and strengthening the conditions for scalable social impact.",
         "company": "Coompanion",
         "companyLink": "https://coompanion.se/",
         "image": "../assets/coompass.svg",
@@ -26,8 +26,8 @@
     {
         "id": "around",
         "title": "Around",
-        "subtitle": "Sustainable Fashion System",
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+        "subtitle": "Garment Design Platform",
+        "content": "A digital platform that helps clothing manufacturers design garments with circularity and recyclability in mind. The solution addresses an industry challenge where most textiles are still not recycled and where better design decisions are key to reducing waste.",
         "company": "Around Systems",
         "companyLink": "#",
         "image": "../assets/around.svg",

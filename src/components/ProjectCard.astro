@@ -40,10 +40,11 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
 
 <style>
     .card {
-        max-width: 400px;
+        position: relative;
+        width: 400px;
         height: auto;
         border: 1px solid var(--ui-border);
-        padding: 1rem;
+        padding: 2rem 1rem;
         margin: 1rem;
         border-radius: var(--border-radius-2);
         background-color: var(--clr-white);
@@ -52,7 +53,25 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         flex-direction: column;
         justify-content: space-between;
         align-items: start; 
-        gap: 1rem;
+        gap: var(--gap-4);
+    }
+
+    .card::after, .card::before {
+        content: '';
+        position: absolute;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-image: conic-gradient(var(--clr-green-500), var(--clr-brand-500), var(--clr-sky-500), var(--clr-green-500));
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        border-radius: var(--border-radius-2);
+    }
+
+    .card::before {
+        filter: blur(1rem);
+        opacity: 0.5;
     }
 
     .card h2 {
@@ -78,29 +97,31 @@ const LogoComponent = filename ? svgs[`/src/assets/${filename}`]?.default : null
         justify-content: start;
         align-items: center;
         gap: 1rem;
+        overflow: visible;
     }
 
     .status-badge {
+        position: relative;
+        isolation: isolate;
         font-family: var(--ff-mono);
         font-size: var(--text-xs);
-        border: 1px solid var(--ui-border);
         padding: 0.25rem 0.5rem;
         border-radius: var(--border-radius-3);
         color: var(--clr-black);
     }
 
     .prod {
-        background-color: var(--clr-green-200);
+        background-color: var(--clr-green-100);
         border: 1px solid var(--clr-green-500);
     }
 
     .mvp {
-        background-color: var(--clr-amber-200);
+        background-color: var(--clr-amber-100);
         border: 1px solid var(--clr-amber-500);
     }
 
     .dev {
-        background-color: var(--clr-sky-200);
+        background-color: var(--clr-sky-100);
         border: 1px solid var(--clr-sky-500);
     }
     

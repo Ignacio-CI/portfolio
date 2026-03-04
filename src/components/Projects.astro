@@ -4,11 +4,11 @@ import Section from "@layouts/Section.astro";
 import projects from "@data/projects.json" assert { type: "json" };
 ---
 
-<Section id="projects">
+<Section id="work">
     <article class="projects__wrapper">
         <div class="projects__header">
-            <h1>PROJECTS</h1>
-            <p>Some of my projects</p>
+            <h1>WORK</h1>
+            <p>Some of the projects that I've been working on</p>
         </div>
         <ProjectCardContainer projects={projects} />
     </article>
@@ -20,6 +20,7 @@ import projects from "@data/projects.json" assert { type: "json" };
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: var(--gap-4);
     }
 
     .projects__header {

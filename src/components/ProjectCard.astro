@@ -169,8 +169,13 @@ const { title, subtitle, content, link, tags, status, id }: Props = Astro.props;
         color: var(--clr-black);
     }
 
-    .status-badge::after,
-    .status-badge::before {
+    .prod {
+        background-color: var(--clr-green-100);
+        border: 1px solid var(--clr-green-500);
+    }
+
+    .status-badge.prod::after,
+    .status-badge.prod::before {
         content: '';
         position: absolute;
         width: calc(100% + 6px);
@@ -183,14 +188,9 @@ const { title, subtitle, content, link, tags, status, id }: Props = Astro.props;
         border-radius: var(--border-radius-4);
     }
 
-    .status-badge::before {
+    .status-badge.prod::before {
         filter: blur(1rem);
         opacity: 0.5;
-    }
-
-    .prod {
-        background-color: var(--clr-green-100);
-        border: 1px solid var(--clr-green-500);
     }
 
     .mvp {

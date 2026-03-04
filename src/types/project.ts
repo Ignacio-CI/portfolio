@@ -1,6 +1,7 @@
 export type ProjectStatus = 'production' | 'mvp' | 'development';
 
 export interface Project {
+    id: string;
     title: string;
     subtitle: string;
     content: string;

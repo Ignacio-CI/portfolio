@@ -1,14 +1,18 @@
 ---
 import type { Project } from '../types/project';
+import cardBg from '../assets/card-bg.jpg';
+import cardBg5 from '../assets/card-bg-5.jpg';
+import cardBg6 from '../assets/card-bg-6.jpg';
+import cardBg7 from '../assets/card-bg-7.jpg';
 
 type Props = Project;
 
-const { title, subtitle, content, link, tags, status }: Props = Astro.props;
+const { title, subtitle, content, link, tags, status, id }: Props = Astro.props;
 ---
 
 <div class="card">
     <div class="card__content">
-        <div class="card__front">
+        <div class="card__front" style={`background-image: url(${id === 'agarsteget' ? cardBg5.src : id === 'coompass' ? cardBg6.src : id === 'around' ? cardBg7.src : cardBg.src}); background-size: cover; background-blend-mode: overlay; background-color: #b7c9e5;`}>
             <h3 class="card__title">{title}</h3>
             <p class="card__subtitle">{subtitle}</p>
         </div>
@@ -102,9 +106,10 @@ const { title, subtitle, content, link, tags, status }: Props = Astro.props;
 
     .card__body {
         text-align: left;
+        color: var(--clr-brand-100);
         transform: var(--level-two);
         font-family: var(--ff-sans);
-        font-weight: var(--fw-normal);
+        font-weight: var(--fw-medium);
         font-size: var(--text-md);
         line-height: 1.6;
     }
@@ -120,6 +125,7 @@ const { title, subtitle, content, link, tags, status }: Props = Astro.props;
         flex-wrap: wrap;
         gap: 0.5em;
         padding: 1em 0;
+        transform: var(--level-one);
     }
 
     .card__tag {
@@ -136,6 +142,7 @@ const { title, subtitle, content, link, tags, status }: Props = Astro.props;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transform: var(--level-two);
     }
 
     .card__link {
@@ -154,11 +161,31 @@ const { title, subtitle, content, link, tags, status }: Props = Astro.props;
     }
 
     .status-badge {
+        position: relative;
         font-family: var(--ff-mono);
         font-size: var(--text-xs);
         padding: 0.25rem 0.5rem;
         border-radius: var(--border-radius-3);
         color: var(--clr-black);
+    }
+
+    .status-badge::after,
+    .status-badge::before {
+        content: '';
+        position: absolute;
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
+        background-image: conic-gradient(var(--clr-green-500), var(--clr-brand-500), var(--clr-sky-500), var(--clr-green-500));
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        border-radius: var(--border-radius-4);
+    }
+
+    .status-badge::before {
+        filter: blur(1rem);
+        opacity: 0.5;
     }
 
     .prod {

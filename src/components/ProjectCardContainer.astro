@@ -8,6 +8,7 @@ const { projects } = Astro.props;
 <article class="project-card-container">
    {projects.map((project: Project) => (
     <ProjectCard
+        id={project.id}
         title={project.title}
         subtitle={project.subtitle}
         content={project.content}

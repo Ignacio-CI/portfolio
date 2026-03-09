@@ -1,58 +1,11 @@
 <main class="hero">
-        <div id="canvas-container" class="canvas-wrapper"></div>
-
-        <section class="hero__content">
-            <header class="hero__header">
-                <h1 class="brand-name">IGNACE<span class="dot">.</span></h1>
-                <p class="brand-description">[ Frontend Software Engineer ]</p>
-            </header>
-        </section>
+    <section class="hero__content">
+        <header class="hero__header">
+            <h1 class="brand-name">IGNACE<span class="dot">.</span></h1>
+            <p class="brand-description">[ AI-Driven Web Systems ]</p>
+        </header>
+    </section>
 </main>
-
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-
-<script is:inline>
-    new p5(p => {
-        const accentColor = [79, 70, 229];
-
-        p.setup = () => {
-            let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-            canvas.parent('canvas-container');
-            p.noFill();
-        };
-
-        p.draw = () => {
-            p.clear();
-            p.translate(0, p.height / 2);
-
-            let t = p.frameCount * 0.003;
-
-            for (let i = 0; i < 4; i++) {
-                let alpha = p.map(i, 0, 4, 20, 120);
-                p.stroke(accentColor[0], accentColor[1], accentColor[2], alpha);
-                p.strokeWeight(1.2);
-
-                p.beginShape();
-                for (let x = 0; x <= p.width; x += 15) {
-                    let mouseInfluence = p.map(p.mouseX, 0, p.width, 0.001, 0.006);
-                    let noiseVal = p.noise(x * mouseInfluence, t + i * 0.25);
-
-                    let y = p.map(noiseVal, 0, 1, -220, 220);
-
-                    let edgeDist = p.sin(p.map(x, 0, p.width, 0, p.PI));
-                    y *= p.pow(edgeDist, 3);
-
-                    p.vertex(x, y);
-                }
-                p.endShape();
-            }
-        };
-
-        p.windowResized = () => {
-            p.resizeCanvas(p.windowWidth, p.windowHeight);
-        };
-    });
-</script>
 
 <style>
     .hero {

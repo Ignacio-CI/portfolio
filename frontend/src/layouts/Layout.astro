@@ -1,0 +1,219 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/jetbrains-mono';
+
+import Navbar from '../components/Navbar.astro';
+
+const { title = 'Ignace | Frontend Software Engineer' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Navbar />
+        <main>
+            <slot />
+        </main>
+        <footer>
+            <p>© 2026 Ignace. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --clr-white: oklch(98.5% 0 0);
+        --clr-black: oklch(14.1% 0.005 285.823);
+        --clr-brand-100: oklch(93% 0.034 272.788);
+        --clr-brand-400: oklch(67.3% 0.182 276.935);
+        --clr-brand-500: oklch(58.5% 0.233 277.117);
+        --clr-brand-600: oklch(51.1% 0.262 276.966);
+        --clr-green-100: oklch(96.2% 0.044 156.743);
+        --clr-green-200: oklch(92.5% 0.084 155.995);
+        --clr-green-500: oklch(72.3% 0.219 149.579);
+        --clr-amber-100: oklch(96.2% 0.059 95.617);
+        --clr-amber-200: oklch(92.4% 0.12 95.746);
+        --clr-amber-500: oklch(76.9% 0.188 70.08);
+        --clr-sky-100: oklch(95.1% 0.026 236.824);
+        --clr-sky-200: oklch(90.1% 0.058 230.902);
+        --clr-sky-500: oklch(68.5% 0.169 237.323);
+        --clr-neutral-200: oklch(92.2% 0 0);
+        --clr-neutral-500: oklch(55.6% 0 0);
+        --clr-neutral-600: oklch(43.9% 0 0);
+        --clr-neutral-900: oklch(20.5% 0 0);
+
+        --ff-sans: 'Inter Variable', sans-serif;
+        --ff-mono: 'JetBrains Mono', monospace;
+
+        --fs-200: 0.75rem;
+        --fs-300: 0.875rem;
+        --fs-400: 1rem;
+        --fs-500: 1.125rem;
+        --fs-600: 1.25rem;
+        --fs-700: 1.5rem;
+        --fs-800: 1.875rem;
+        --fs-900: 2.25rem;
+        --fs-1000: 2.25rem;
+
+        --fw-normal: 400;
+        --fw-medium: 500;
+        --fw-semibold: 600;
+        --fw-bold: 700;
+
+        @media (width > 760px) {
+            --fs-200: 0.75rem;
+            --fs-300: 0.875rem;
+            --fs-400: 1rem;
+            --fs-500: 1.25rem;
+            --fs-600: 1.5rem;
+            --fs-700: 2rem;
+            --fs-800: 3rem;
+            --fs-900: 5rem;
+            --fs-1000: 7rem;
+        }
+    }
+
+    :root {
+        --text-xs: var(--fs-200);
+        --text-sm: var(--fs-300);
+        --text-md: var(--fs-400);
+        --text-lg: var(--fs-500);
+        --text-xl: var(--fs-600);
+        --text-2xl: var(--fs-700);
+        --text-3xl: var(--fs-800);
+        --text-4xl: var(--fs-900);
+
+        --text-primary: var(--clr-black);
+        --text-secondary: var(--clr-neutral-600);
+        --text-accent: var(--clr-brand-600);
+        --text-muted: var(--clr-neutral-500);
+        --text-high-contrast: var(--clr-white);
+
+        --heading-sm: var(--fs-700);
+        --heading-md: var(--fs-800);
+        --heading-lg: var(--fs-900);
+        --heading-xl: var(--fs-1000);
+
+        --bg-light: var(--clr-white);
+        --bg-dark: var(--clr-neutral-900);
+
+        --ui-border: var(--clr-neutral-200);
+
+        --border-radius-1: 0.25rem;
+        --border-radius-2: 0.5rem;
+        --border-radius-3: 0.75rem;
+        --border-radius-4: 1rem;
+
+        --gap-1: 0.25rem;
+        --gap-2: 0.5rem;
+        --gap-3: 0.75rem;
+        --gap-4: 1rem;
+        --gap-5: 1.5rem;
+        --gap-6: 2rem;
+
+        --level-one: translateZ(3rem);
+        --level-two: translateZ(6rem);
+        --level-three: translateZ(9rem);
+    }
+    
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        -moz-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+    }
+
+    [role="list"] {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    button,
+    input,
+    label {
+        line-height: 1.1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-wrap: balance;
+    }
+
+    p,
+    li {
+        text-wrap: pretty;
+    }
+
+    img,
+    picture {
+        max-inline-size: 100%;
+        display: block;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    @view-transition {
+        navigation: auto;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+
+    html {
+        scroll-padding: 2rem;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+        background-color: var(--bg-light);
+        color: var(--text-primary);
+        font-family: var(--ff-sans);
+    }
+
+    img {
+        border-radius: var(--border-radius-2);
+    }
+</style>

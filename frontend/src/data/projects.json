@@ -1,0 +1,61 @@
+[
+    {
+        "id": "agarsteget",
+        "title": "Ägarsteget.se",
+        "subtitle": "AI-powered platform",
+        "content": "AI-driven platform designed to help business owners prepare for a successful ownership transition. The solution combines clear guidance around ownership change with a tailored AI assistant that supports entrepreneurs in navigating complex questions related to exit readiness.",
+        "company": "Connect Norr",
+        "companyLink": "https://connectsverige.se/norr/",
+        "image": "../assets/agarsteget.svg",
+        "status": "production",
+        "link": "https://agarsteget.se",
+        "tags": [
+            "SvelteKit",
+            "OpenAI API",
+            "TypeScript",
+            "TailwindCSS",
+            "Node.js",
+            "Firebase",
+            "DigitalOcean"
+        ]
+    },
+    {
+        "id": "coompass",
+        "title": "Coompass",
+        "subtitle": "AI-driven ecosystem",
+        "content": "AI-supported web platform that helps social enterprises and cooperatives find financing, measure social and economic impact, and develop sustainable business models, reducing administrative burden, improving transparency and impact data quality, and strengthening the conditions for scalable social impact.",
+        "company": "Coompanion",
+        "companyLink": "https://coompanion.se/",
+        "image": "../assets/coompass.svg",
+        "status": "mvp",
+        "link": "https://coompass.coop",
+        "tags": [
+            "SvelteKit",
+            "OpenAI API",
+            "TypeScript",
+            "TailwindCSS",
+            "Node.js",
+            "Firebase",
+            "DigitalOcean"
+        ]
+    },
+    {
+        "id": "around",
+        "title": "Around",
+        "subtitle": "Garment Lifecycle Manager",
+        "content": "A digital platform that helps clothing manufacturers design garments with circularity and recyclability in mind. The solution addresses an industry challenge where most textiles are still not recycled and where better design decisions are key to reducing waste.",
+        "company": "Around Systems",
+        "companyLink": "#",
+        "image": "../assets/around.svg",
+        "status": "development",
+        "link": "https://www.around.systems/",
+        "tags": [
+            "React",
+            "Echarts",
+            "TypeScript",
+            "TailwindCSS",
+            "TanStack Query",
+            "Azure"
+        ]
+    }
+]

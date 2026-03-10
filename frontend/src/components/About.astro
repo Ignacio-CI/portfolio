@@ -1,5 +1,6 @@
 ---
 import Section from "@layouts/Section.astro";
+import Chat from "@components/Chat.svelte";
 import aboutImg from "@assets/me-sqr.jpg";
 import maskImg from "@assets/mask-2.svg";
 
@@ -8,21 +9,12 @@ const mask = `url(${maskImg.src})`;
 
 <Section id="about">
     <article class="about__wrapper">
-        <div class="about__chat">
-            <h1>Chat</h1>
-        </div>
+        <Chat client:visible />
         <img src={aboutImg.src} alt="An image of me" />
     </article>
 </Section>
 
 <style define:vars={{ mask }}>
-    .about__chat {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-high-contrast);
-    }
-
     .about__wrapper {
         position: relative;
         width: 100%;
@@ -30,6 +22,7 @@ const mask = `url(${maskImg.src})`;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
+        justify-items: center;
         isolation: isolate;
     }
 

@@ -12,12 +12,13 @@
         {
             id: crypto.randomUUID(),
             role: "assistant",
-            content: "Hey! I'm Ignace's assistant. Ask me anything about him.",
+            content: "Hey! I'm Ignace's digital twin. Ask me anything.",
             timestamp: new Date().toLocaleTimeString(),
         },
     ]);
     let input = $state("");
     let isLoading = $state(false);
+    let sessionId = $state<string | null>(null);
     let conversationEl = $state<HTMLDivElement | undefined>(undefined);
 
     $effect(() => {
@@ -49,33 +50,23 @@
         });
 
         try {
-            const response = await fetch(`${API_URL}/api/chat`, {
+            const res = await fetch(`${API_URL}/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    messages: messages
-                        .filter((m) => m.content)
-                        .map(({ role, content }) => ({ role, content })),
+                    message: trimmed,
+                    ...(sessionId && { session_id: sessionId }),
                 }),
             });
 
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            if (!response.body) throw new Error("No response body");
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder();
+            const data: { response: string; session_id: string } = await res.json();
+            sessionId = data.session_id;
 
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                const chunk = decoder.decode(value, { stream: true });
-                const idx = messages.findIndex((m) => m.id === assistantId);
-                if (idx !== -1) {
-                    messages[idx] = {
-                        ...messages[idx],
-                        content: messages[idx].content + chunk,
-                    };
-                }
+            const idx = messages.findIndex((m) => m.id === assistantId);
+            if (idx !== -1) {
+                messages[idx] = { ...messages[idx], content: data.response };
             }
         } catch {
             const idx = messages.findIndex((m) => m.id === assistantId);

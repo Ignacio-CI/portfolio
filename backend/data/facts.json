@@ -1,0 +1,40 @@
+{
+    "full_name": "Ignacio Ricardo Cerda Infante",
+    "name": "Ignacio",
+    "current_role": "Fullstack Developer",
+    "location": "Malmö, Sweden",
+    "email": "hi@ignace.dev",
+    "website": "https://ignace.dev",
+    "specialties": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "Typescript",
+        "React",
+        "Next.js",
+        "Svelte",
+        "SvelteKit",
+        "Astro",
+        "TailwindCSS",
+        "Node.js",
+        "Python",
+        "FastAPI",
+        "Gen & Agentic AI",
+        "AI-Driven Applications",
+        "RAG",
+        "MLOps",
+        "CI/CD",
+        "Terraform",
+        "AWS",
+        "Azure",
+        "GCP"
+    ],
+    "years_experience": 2,
+    "education": [
+        {
+            "degree": "Frontend | Web developer",
+            "institution": "Grit Academy",
+            "year": "2024"
+        }
+    ]
+}

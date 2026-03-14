@@ -53,11 +53,41 @@ import Link from "@components/Link.astro";
         padding: 0;
     }
 
-    /* .nav-links a {
-        
-        font-family: var(--ff-mono);
-        font-size: var(--text-xs);
-        text-decoration: none;
-        text-transform: lowercase;
-    } */
+    @media (width <= 760px) {
+        nav {
+            padding: 1em 1.25em;
+        }
+
+        .nav-links {
+            gap: 1rem;
+            font-size: var(--text-xs);
+        }
+    }
+
+    nav.nav--on-dark {
+        --link-color: var(--text-high-contrast);
+    }
+
+    nav.nav--on-dark .logo-i {
+        color: var(--text-high-contrast);
+        border-color: var(--text-high-contrast);
+    }
 </style>
+
+<script>
+    const nav = document.querySelector('nav');
+    const darkSections = document.querySelectorAll('#about, #contact');
+
+    const observer = new IntersectionObserver(
+        () => {
+            const anyVisible = [...darkSections].some(el =>
+                el.getBoundingClientRect().top < 60 &&
+                el.getBoundingClientRect().bottom > 0
+            );
+            nav.classList.toggle('nav--on-dark', anyVisible);
+        },
+        { threshold: [0, 0.1, 0.9, 1], rootMargin: '0px 0px -90% 0px' }
+    );
+
+    darkSections.forEach(s => observer.observe(s));
+</script>

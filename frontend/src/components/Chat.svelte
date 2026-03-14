@@ -61,7 +61,8 @@
 
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-            const data: { response: string; session_id: string } = await res.json();
+            const data: { response: string; session_id: string } =
+                await res.json();
             sessionId = data.session_id;
 
             const idx = messages.findIndex((m) => m.id === assistantId);
@@ -100,7 +101,7 @@
                                 <span></span><span></span><span></span>
                             </span>
                         {:else}
-                            {message.content}
+                            {@html message.content}
                         {/if}
                     </p>
                     {#if message.content}
@@ -255,8 +256,23 @@
     }
 
     @keyframes typing {
-        0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-        30% { opacity: 1; transform: translateY(-3px); }
+        0%,
+        60%,
+        100% {
+            opacity: 0.3;
+            transform: translateY(0);
+        }
+        30% {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+    }
+
+    @media (width <= 760px) {
+        .chat__container {
+            min-height: 450px;
+            height: 65vh;
+        }
     }
 
     /* Input */

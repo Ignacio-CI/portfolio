@@ -10,7 +10,7 @@ const mask = `url(${maskImg.src})`;
 <Section id="about">
     <article class="about__wrapper">
         <Chat client:visible />
-        <img src={aboutImg.src} alt="An image of me" />
+        <img src={aboutImg.src} alt="Ignacio Cerda" />
     </article>
 </Section>
 
@@ -24,6 +24,7 @@ const mask = `url(${maskImg.src})`;
         align-items: center;
         justify-items: center;
         isolation: isolate;
+        padding: 6em 0;
     }
 
     .about__wrapper::after {
@@ -33,6 +34,18 @@ const mask = `url(${maskImg.src})`;
         inset: 0;
         z-index: -1;
         transform: skewY(-5deg);
+    }
+
+    @media (width <= 760px) {
+        .about__wrapper {
+            grid-template-columns: 1fr;
+            padding: 3em 1em 3em;
+        }
+
+        img {
+            order: -1;
+            max-width: 280px;
+        }
     }
 
     img {

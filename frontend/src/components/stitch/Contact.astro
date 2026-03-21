@@ -1,0 +1,25 @@
+---
+// Contact.astro
+---
+<section class="py-32 relative overflow-hidden bg-background">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-primary/5 blur-[150px] rotate-12"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+        <h2 class="font-headline text-5xl md:text-7xl font-bold text-white tracking-tighter mb-8">Let's work together</h2>
+        <p class="text-on-surface-variant font-body text-lg mb-12 max-w-xl mx-auto">
+            Seeking a digital architect for your next high-stakes project? Initiate a connection below.
+        </p>
+        <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            <input class="flex-1 bg-surface-container border-none text-white font-label text-sm tracking-widest focus:ring-1 focus:ring-secondary py-4 px-6 rounded-md" placeholder="YOUR_EMAIL@PROVIDER.COM" type="email"/>
+            <button class="bg-white text-black font-bold font-body px-10 py-4 rounded-md hover:bg-secondary transition-colors uppercase text-sm tracking-widest" type="button">
+                Send Message
+            </button>
+        </form>
+        <div class="mt-20 flex justify-center space-x-12 opacity-40 text-white">
+            <span class="material-symbols-outlined text-3xl" data-icon="alternate_email">alternate_email</span>
+            <span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+            <span class="material-symbols-outlined text-3xl" data-icon="terminal">terminal</span>
+        </div>
+    </div>
+</section>

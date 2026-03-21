@@ -1,0 +1,39 @@
+---
+// Hero.astro
+---
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
+    <!-- Background Atmospheric Depth -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 w-full h-px bg-linear-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-8 text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-outline-variant/20 bg-surface-container-low mb-8">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span class="text-[10px] uppercase tracking-[0.2em] font-label text-on-surface-variant">System Status: Optimized</span>
+        </div>
+        <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter text-white mb-8 max-w-5xl mx-auto leading-[0.9]">
+            Web Development <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">×</span> AI Integration
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed font-body">
+            Architecting the next generation of digital experiences through high-performance code and synthetic intelligence.
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+            <button class="w-full md:w-auto bg-primary text-on-primary-fixed px-10 py-4 rounded-md font-bold text-lg hover:shadow-[0_0_30px_rgba(204,151,255,0.4)] transition-all font-body">
+                Get Started
+            </button>
+            <button class="w-full md:w-auto border border-outline-variant/30 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-white/5 transition-all font-body">
+                View Systems
+            </button>
+        </div>
+    </div>
+
+    <!-- Neural Hub Visualization -->
+    <div class="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-20 pointer-events-none">
+        <div class="w-full h-full border border-primary/20 rounded-full rotate-12 flex items-center justify-center">
+            <div class="w-[80%] h-[80%] border border-secondary/20 rounded-full -rotate-45"></div>
+        </div>
+    </div>
+</section>

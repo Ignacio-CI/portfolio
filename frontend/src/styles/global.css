@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-error-dim: #d73357;
+  --color-on-background: #ffffff;
+  --color-secondary-dim: #40ceed;
+  --color-on-tertiary-fixed: #39000d;
+  --color-on-tertiary-fixed-variant: #711227;
+  --color-primary-dim: #9c48ea;
+  --color-on-secondary-fixed: #003a45;
+  --color-on-primary-fixed-variant: #430076;
+  --color-tertiary-container: #fe7e8e;
+  --color-tertiary-fixed: #ff909c;
+  --color-secondary-container: #00687a;
+  --color-on-tertiary: #680921;
+  --color-secondary-fixed: #65e1ff;
+  --color-primary: #cc97ff;
+  --color-surface-tint: #cc97ff;
+  --color-on-secondary: #004b58;
+  --color-primary-fixed-dim: #b971ff;
+  --color-secondary: #53ddfc;
+  --color-surface-container: #1a1919;
+  --color-on-primary-fixed: #000000;
+  --color-on-secondary-container: #ecfaff;
+  --color-surface-container-low: #131313;
+  --color-on-secondary-fixed-variant: #005969;
+  --color-surface-container-high: #201f1f;
+  --color-inverse-primary: #842cd3;
+  --color-surface: #0e0e0e;
+  --color-surface-variant: #262626;
+  --color-on-error-container: #ffb2b9;
+  --color-outline-variant: #494847;
+  --color-primary-fixed: #c284ff;
+  --color-error: #ff6e84;
+  --color-outline: #777575;
+  --color-surface-container-highest: #262626;
+  --color-on-surface: #ffffff;
+  --color-error-container: #a70138;
+  --color-tertiary-dim: #f47786;
+  --color-inverse-surface: #fcf8f8;
+  --color-inverse-on-surface: #565554;
+  --color-tertiary-fixed-dim: #fa7c8b;
+  --color-on-primary-container: #360061;
+  --color-on-primary: #47007c;
+  --color-background: #0e0e0e;
+  --color-primary-container: #c284ff;
+  --color-on-surface-variant: #adaaaa;
+  --color-on-error: #490013;
+  --color-surface-dim: #0e0e0e;
+  --color-tertiary: #ff95a0;
+  --color-secondary-fixed-dim: #48d4f3;
+  --color-surface-container-lowest: #000000;
+  --color-on-tertiary-container: #570018;
+  --color-surface-bright: #2c2c2c;
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Inter", sans-serif;
+  
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+@layer base {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 40px rgba(204, 151, 255, 0.1);
+  }
+  .glass-panel {
+    background: rgba(38, 38, 38, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+}

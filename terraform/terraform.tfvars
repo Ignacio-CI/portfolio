@@ -1,4 +1,5 @@
 project_name             = "portfolio"
+github_repository        = "Ignacio-CI/portfolio"
 environment              = "dev"
 bedrock_model_id         = "global.amazon.nova-2-lite-v1:0"
 lambda_timeout           = 60

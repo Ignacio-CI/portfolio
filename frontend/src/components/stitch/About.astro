@@ -1,0 +1,134 @@
+---
+// About.astro
+import Me from "@assets/me-3.png";
+---
+
+<section id="about" class="pt-32 pb-24 px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto overflow-hidden">
+    <!-- Section 1: The Architect's Persona -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
+        <div class="lg:col-span-5 relative group">
+            <div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+            <div class="relative overflow-hidden rounded-xl border border-outline-variant/15 aspect-4/5 bg-surface-container-low">
+                <!-- <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" data-alt="Professional portrait of Ignace in high-contrast dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNseDGUcxIWTY8pn8-AS4xuZS0aF4Z-7N-hPezHoHelAbKBw4X1in2aIBNoN8e8WTLGc58PtzdwSKwzG3CMPaKg84ndELQemCXLv7ZkwmhgFeTKlVd9mDQqNLY0F35uy3NqzIrg83viBdxSsEmHyTpCF5DO5l7uw4TyXX-f4Fn4LY3f28Dt3S5jynUUAKP0ic6FjofQz-36ruG12tOtCBeDj6eLqNAX_pi5p4LZknppw0degAK7FDGmbctN3MRjowd48rgW-q6Z6IY"/> -->
+                 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" data-alt="Professional portrait of Ignace in high-contrast dramatic lighting" src={Me.src}/>
+                <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-60"></div>
+            </div>
+            <div class="absolute -bottom-6 -right-6 hidden lg:block">
+                <div class="glass-panel p-6 rounded-xl border border-primary/20 shadow-[0_0_80px_rgba(168,85,247,0.05)]">
+                    <p class="font-label text-[10px] uppercase tracking-[0.2em] text-primary mb-1">Current Focus</p>
+                    <p class="font-headline font-bold text-white uppercase text-lg tracking-tighter">Neural Structures</p>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-7 space-y-8">
+            <div class="space-y-2">
+                <span class="font-label text-[10px] uppercase tracking-[0.4em] text-secondary font-semibold">Evolution of Form</span>
+                <h2 class="text-6xl md:text-8xl font-headline font-bold tracking-tighter leading-[0.9] text-white">THE <br/><span class="text-primary">ARCHITECT</span></h2>
+            </div>
+            <div class="max-w-xl space-y-6">
+                <p class="text-xl md:text-2xl font-body text-on-surface font-light leading-relaxed">
+                    Ignace is the Lead Architect of a next-generation agency. By combining human strategic vision with a specialized swarm of AI agents, he constructs digital environments that are both structurally sound and synthetically scalable.
+                </p>
+                <p class="text-on-surface-variant font-body leading-relaxed border-l border-primary/30 pl-6">
+                    Bridging the gap between classical architectural principles and the synthetic frontier of AI, the Ignace.dev team crafts bespoke ecosystems for brands that refuse to settle. Every pixel is a calculated risk; every interaction, a deliberate movement executed by our hybrid workforce.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: AI Interactive Terminal -->
+    <div class="mb-48 relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="mb-12 text-center">
+                <h3 class="font-headline text-4xl font-bold tracking-tight mb-4 uppercase text-white">Interface with the System</h3>
+                <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Query the digital consciousness for deeper insights</p>
+            </div>
+            <div class="glass-panel rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl">
+                <!-- Terminal Header -->
+                <div class="bg-surface-container-highest px-6 py-3 flex items-center justify-between border-b border-outline-variant/10">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-error/40"></div>
+                        <div class="w-3 h-3 rounded-full bg-secondary-container/40"></div>
+                        <div class="w-3 h-3 rounded-full bg-primary/40"></div>
+                    </div>
+                    <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase">Console v4.0.2 // Ignace.dev</div>
+                    <div class="w-12"></div>
+                </div>
+                <!-- Terminal Body -->
+                <div class="p-8 font-label text-sm md:text-base min-h-[400px] flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="text-secondary font-bold shrink-0">visitor@ignace:~$</span>
+                            <span class="text-on-surface">What is your workforce model?</span>
+                        </div>
+                        <div class="flex gap-4 group">
+                            <span class="text-primary font-bold shrink-0">ignace_ai:</span>
+                            <div class="text-on-surface-variant leading-relaxed max-w-2xl animate-pulse">
+                                <span class="text-primary-dim">[Querying swarm...]</span> Our model is a <span class="text-white font-medium">Hybrid Intelligence Collective</span>. The Lead Architect provides the strategic DNA, while our <span class="text-primary font-bold">Agent Swarm</span> executes with 10x speed and precision. We don't just use AI; we work alongside it as specialized team members.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Core Principles Grid (Asymmetric Bento) -->
+    <div class="mb-32">
+        <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-md">
+                <h3 class="font-headline text-5xl font-bold tracking-tighter uppercase mb-4 text-white">Core <span class="text-primary">Foundations</span></h3>
+                <p class="text-on-surface-variant text-sm font-body">The fundamental laws that govern every construct within the Ignace ecosystem.</p>
+            </div>
+            <div class="h-px bg-outline-variant/20 grow mx-8 hidden md:block mb-4"></div>
+            <div class="font-label text-[10px] uppercase tracking-[0.5em] text-outline mb-4 shrink-0">Standards // 2024</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Card 1 -->
+            <div class="md:col-span-8 group relative aspect-video md:aspect-auto">
+                <div class="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                <div class="h-full glass-panel p-10 flex flex-col justify-between rounded-xl border border-outline-variant/15">
+                    <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+                    <div>
+                        <h4 class="font-headline text-3xl font-bold text-white mb-4 uppercase tracking-tighter">Computational Precision</h4>
+                        <p class="text-on-surface-variant font-body leading-relaxed max-w-lg">Zero-margin for error. Our logic layers are stress-tested against the demands of tomorrow's scale, ensuring every variable serves a structural purpose.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="md:col-span-4 group h-[400px]">
+                <div class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl hover:bg-surface-container-high transition-colors border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-secondary text-4xl">energy_program_saving</span>
+                    <div>
+                        <h4 class="font-headline text-2xl font-bold text-white mb-4 uppercase tracking-tighter">Organic Computation</h4>
+                        <p class="text-on-surface-variant text-sm font-body leading-relaxed">Mimicking biological growth patterns in interface development to create systems that feel intuitive and alive.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="md:col-span-4 group h-[400px]">
+                <div class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl hover:bg-surface-container-high transition-colors border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-on-surface-variant text-4xl">architecture</span>
+                    <div>
+                        <h4 class="font-headline text-2xl font-bold text-white mb-4 uppercase tracking-tighter">Digital Brutalism</h4>
+                        <p class="text-on-surface-variant text-sm font-body leading-relaxed">Rejecting the ornamental. Embracing raw, functional textures and massive typography to assert dominance in a crowded digital space.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="md:col-span-8 group h-[400px]">
+                <div class="h-full relative overflow-hidden rounded-xl border border-outline-variant/15">
+                    <img class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:scale-110 transition-transform duration-1000" data-alt="Abstract deep purple and black organic mesh pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxlGOIyklxQP2bcGvhPeNsNhZuXMBST_3bK1jEAgFYp_GQnOvywaSk_edf3sy23qNSkC9gDIrjbQ6IPHXnwz7o3izIOSCU3gQLvKerjTMmn0rt06jkYjafyceRM27aF2k00PKSdu2mk2Bm9gMT0D1N4sYtPGEmvZ8L9G-ytnMMVYuuY4J8CjX-VkyySQJzf_L9bKXLnhZQ7MAOmJVTFIJSjSk53656imfjnREb5iRuE3UWyp_eFVfhVra3Xx-CEbyhJEhOgysl9Q8E"/>
+                    <div class="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent p-10 flex flex-col justify-between">
+                        <span class="material-symbols-outlined text-primary-dim text-4xl">schema</span>
+                        <div>
+                            <h4 class="font-headline text-3xl font-bold text-white mb-4 uppercase tracking-tighter">Synaptic Architecture</h4>
+                            <p class="text-on-surface-variant font-body leading-relaxed max-w-md">The neural pathways between user intent and digital outcome must be frictionless. We build the bridges before the user even knows they need to cross.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

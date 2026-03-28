@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { untrack } from "svelte";
+    import { untrack, tick } from "svelte";
 
     interface Message {
         id: string;
@@ -40,7 +40,10 @@
 
     // Auto-scroll to bottom
     $effect(() => {
-        messages;
+        // Track array length and the last message's content to trigger scroll
+        messages.length;
+        if (messages.length > 0) messages[messages.length - 1].content;
+
         if (conversationEl) {
             conversationEl.scrollTop = conversationEl.scrollHeight;
         }
@@ -110,6 +113,10 @@
             }
         } finally {
             isLoading = false;
+            await tick();
+            if (inputEl) {
+                inputEl.focus();
+            }
         }
     }
 

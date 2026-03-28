@@ -56,3 +56,14 @@ Evolve the Ignace.dev website from a jargon-heavy "Synthetic" concept to a clear
 - **Copy Review:** Read all text aloud to ensure it sounds like a professional agency, not a sci-fi novel.
 - **Visual Alignment:** Ensure the "Synthetix Noir" aesthetic (neon accents on dark glass) remains but supports the clearer text.
 - **Links & CTAs:** Verify all "Start Project" and "Book Consultation" links are consistent.
+
+## Recent Implementations
+
+### Terminal Chat component (`TerminalChat.svelte`)
+- **Objective:** Move interactive chat from `Chat.svelte` over to the Stitch-styled UI found in `About.astro` terminal.
+- **Action Items:**
+    1. Create `TerminalChat.svelte` to contain the Svelte 5 logic (`$state`, `fetch`, etc.) handling API messaging and state.
+    2. Adapt `About.astro` terminal's HTML structure within `TerminalChat.svelte` rendering loop.
+    3. Modify `About.astro` to lazily hydrate `<TerminalChat client:visible />` with the respective translated strings for `headerText`, `aiPrefix`, etc.
+    4. Provide terminal typing animation natively using standard Tailwind CSS classes.
+    5. Handle automatic vertical scrolling in the chat output wrapper when the swarm responds.

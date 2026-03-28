@@ -1,13 +1,18 @@
 ---
+import LanguagePicker from '../LanguagePicker.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
 const { href, pathname } = Astro.props;
-console.log(href)
-console.log(pathname)
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const translatePath = useTranslatedPath(currentLang);
 
 const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/process', label: 'Process' },
-    { href: '/about', label: 'About' },
+    { href: '/', label: t('nav.home') },
+    { href: '/projects', label: t('nav.projects') },
+    { href: '/process', label: t('nav.process') },
+    { href: '/about', label: t('nav.about') },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -18,15 +23,25 @@ const currentPath = Astro.url.pathname;
         <div class="text-2xl font-bold tracking-tighter text-white font-headline">Ignace.dev</div>
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-12 font-headline tracking-tight">
-            {navLinks.map((link) => (
-                <a class={`${link.href === currentPath ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-zinc-400 hover:text-secondary transition-all duration-300 '}`} href={link.href}>{link.label}</a>
-            ))}
+            {navLinks.map((link) => {
+                const translatedHref = translatePath(link.href);
+                // Strip trailing slash for comparison, unless it's exactly "/"
+                const cleanCurrentPath = currentPath === '/' ? currentPath : currentPath.replace(/\/$/, '');
+                const cleanTranslatedHref = translatedHref === '/' ? translatedHref : translatedHref.replace(/\/$/, '');
+                const isActive = cleanTranslatedHref === cleanCurrentPath;
+                return (
+                    <a class={`${isActive ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-zinc-400 hover:text-secondary transition-all duration-300 '}`} href={translatedHref}>{link.label}</a>
+                )
+            })}
         </div>
-        <div class="flex items-center space-x-6">
-            <button class="hidden md:block text-zinc-400 hover:text-white font-label text-[10px] uppercase tracking-widest transition-colors">Login</button>
-            <button class="bg-linear-to-r from-primary to-primary-dim text-on-primary-fixed px-6 py-2.5 rounded-md font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
-                Start Project
-            </button>
+        <div class="flex items-center">
+            <LanguagePicker />
+            <div class="flex items-center space-x-6 ml-4">
+                <button class="hidden md:block text-zinc-400 hover:text-white font-label text-[10px] uppercase tracking-widest transition-colors">{t('nav.login')}</button>
+                <button class="bg-linear-to-r from-primary to-primary-dim text-on-primary-fixed px-6 py-2.5 rounded-md font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+                    {t('nav.start_project')}
+                </button>
+            </div>
         </div>
     </div>
 </nav>

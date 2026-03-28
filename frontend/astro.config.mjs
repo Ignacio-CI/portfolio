@@ -6,9 +6,20 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
+
   integrations: [svelte(), icon()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [
+      // @ts-expect-error - Mismatch between Astro's Vite version and @tailwindcss/vite
+      tailwindcss()
+    ]
   }
 });

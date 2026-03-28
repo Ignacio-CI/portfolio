@@ -1,0 +1,37 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+// Extract path without lang prefix to preserve the current route
+const pathname = Astro.url.pathname;
+let pathWithoutLang = pathname;
+// remove /es or /es/ from the start
+if (pathname.startsWith('/es/') || pathname === '/es') {
+    pathWithoutLang = pathname.replace(/^\/es\/?/, '/');
+    if (pathWithoutLang === '') pathWithoutLang = '/';
+}
+
+const translatePath = useTranslatedPath(currentLang);
+---
+<div class="flex items-center space-x-1 mr-4 bg-white/5 border border-white/10 rounded-full p-1 backdrop-blur-md">
+    {Object.entries(languages).map(([code, label]) => {
+        const isActive = currentLang === code;
+        // Get the target path using the helper
+        const href = code === 'en' ? pathWithoutLang : `/${code}${pathWithoutLang}`;
+        // Ensure '/es/' instead of '/es//'
+        const cleanHref = href.replace(/\/\//g, '/');
+
+        return (
+            <a 
+                href={cleanHref}
+                class={`text-[10px] font-label uppercase px-2 py-1 rounded-full transition-all duration-300 ${isActive ? 'bg-primary/20 text-primary font-bold shadow-[0_0_10px_rgba(83,221,252,0.3)]' : 'text-zinc-500 hover:text-zinc-300'}`}
+                aria-label={label}
+                title={label}
+            >
+                {code}
+            </a>
+        )
+    })}
+</div>

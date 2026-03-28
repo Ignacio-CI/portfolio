@@ -1,16 +1,20 @@
 ---
 // Services.astro
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <section class="py-32 relative bg-surface-container-lowest">
     <div class="max-w-7xl mx-auto px-8">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div class="max-w-xl">
-                <h2 class="font-label text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Core Capabilities</h2>
-                <h3 class="font-headline text-4xl md:text-6xl font-bold text-white tracking-tighter">Engineered for the future.</h3>
+                <h2 class="font-label text-[10px] uppercase tracking-[0.4em] text-primary mb-4">{t('services.badge')}</h2>
+                <h3 class="font-headline text-4xl md:text-6xl font-bold text-white tracking-tighter">{t('services.title')}</h3>
             </div>
             <div class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest border-l border-outline-variant/30 pl-8 pb-2">
-                01 / Services
+                01 / {t('nav.process')}
             </div>
         </div>
 
@@ -19,9 +23,9 @@ import { Icon } from 'astro-icon/components';
             <div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-low p-12 hover:bg-surface-container transition-colors duration-500">
                 <div class="relative z-10">
                     <Icon name="material-symbols:terminal" class="text-5xl text-primary mb-8" />
-                    <h4 class="font-headline text-3xl font-bold text-white mb-4">AI-Driven Web Applications</h4>
+                    <h4 class="font-headline text-3xl font-bold text-white mb-4">{t('services.s1.title')}</h4>
                     <p class="text-on-surface-variant max-w-md leading-relaxed font-body">
-                        From conversion-optimized landing pages to complex enterprise platforms. Strategic human design meets high-speed agent execution for robust, scalable growth.
+                        {t('services.s1.desc')}
                     </p>
                 </div>
                 <div class="absolute top-0 right-0 w-96 h-96 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -32,33 +36,36 @@ import { Icon } from 'astro-icon/components';
             <!-- Secondary Service -->
             <div class="md:col-span-4 group bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all">
                 <Icon name="material-symbols:memory" class="text-5xl text-secondary mb-8" />
-                <h4 class="font-headline text-2xl font-bold text-white mb-4">Strategic Automation</h4>
+                <h4 class="font-headline text-2xl font-bold text-white mb-4">{t('services.s2.title')}</h4>
                 <p class="text-on-surface-variant leading-relaxed font-body">
-                    We architect custom AI Agent Swarms to automate your unique business workflows with expert precision.
+                    {t('services.s2.desc')}
                 </p>
             </div>
 
             <!-- Service Row 2 -->
             <div class="md:col-span-4 group bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 transition-all">
                 <Icon name="material-symbols:query-stats" class="text-5xl text-tertiary mb-8" />
-                <h4 class="font-headline text-2xl font-bold text-white mb-4">Intelligent Data Ecosystems</h4>
+                <h4 class="font-headline text-2xl font-bold text-white mb-4">{t('services.s3.title')}</h4>
                 <p class="text-on-surface-variant leading-relaxed font-body">
-                    Custom RAG pipelines and knowledge systems designed by strategy and powered by AI.
+                    {t('services.s3.desc')}
                 </p>
             </div>
 
             <div class="md:col-span-8 group bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 flex flex-col md:flex-row items-center gap-12 hover:bg-surface-container transition-colors">
                 <div class="flex-1">
                     <Icon name="material-symbols:cloud-done" class="text-5xl text-primary mb-8" />
-                    <h4 class="font-headline text-2xl font-bold text-white mb-4">Custom AI Architectures</h4>
+                    <h4 class="font-headline text-2xl font-bold text-white mb-4">{t('services.s4.title')}</h4>
                     <p class="text-on-surface-variant leading-relaxed font-body">
-                        Bespoke MCP server development and cloud integrations that bridge the gap between your data and next-gen intelligence.
+                        {t('services.s4.desc')}
                     </p>
                 </div>
                 <div class="w-full md:w-64 h-32 glass-panel rounded-lg flex items-center justify-center">
-                    <span class="text-[10px] font-label tracking-[0.3em] uppercase opacity-40">Network Ready</span>
+                    <span class="text-[10px] font-label tracking-[0.3em] uppercase opacity-40">{t('services.s4.extra')}</span>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
         </div>
     </div>
 </section>

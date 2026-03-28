@@ -1,6 +1,10 @@
 ---
 // Projects.astro
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-32 relative bg-surface-dim">
@@ -9,17 +13,15 @@ import { Icon } from 'astro-icon/components';
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div class="max-w-3xl">
                 <span class="font-label uppercase text-[10px] tracking-[0.2em] text-secondary mb-4 block"
-                    >Archive 01 — Portfolio</span
+                    >{t('projects.archive')}</span
                 >
                 <h1
                     class="text-5xl md:text-8xl font-headline font-bold tracking-tighter leading-[0.9] text-on-surface mb-8"
+                    set:html={t('projects.title')}
                 >
-                    Featured <br />
-                    <span class="text-primary">Systems</span>
                 </h1>
                 <p class="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed">
-                    Engineering for the digital era. Our portfolio showcases AI-driven web systems—from
-                    conversion-driven hubs to complex, AI-integrated cloud architectures.
+                    {t('projects.description')}
                 </p>
             </div>
             <div class="flex flex-col items-start md:items-end gap-2 text-right">
@@ -36,27 +38,27 @@ import { Icon } from 'astro-icon/components';
     <div class="max-w-7xl mx-auto px-8 mb-12">
         <div class="flex flex-wrap items-center gap-4 py-4 border-y border-outline-variant/10">
             <span class="font-label text-[10px] uppercase tracking-widest text-zinc-500 mr-4"
-                >Filter By Architecture:</span
+                >{t('projects.filter.by')}</span
             >
             <button
                 class="px-5 py-2 rounded-full border border-primary/40 text-primary font-label text-xs uppercase tracking-widest bg-primary/5"
-                >All Projects</button
+                >{t('projects.filter.all')}</button
             >
             <button
                 class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >AI Systems</button
+                >{t('projects.filter.ai')}</button
             >
             <button
                 class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >Web Architecture</button
+                >{t('projects.filter.web')}</button
             >
             <button
                 class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >Data Viz</button
+                >{t('projects.filter.viz')}</button
             >
             <button
                 class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >Cloud Solutions</button
+                >{t('projects.filter.cloud')}</button
             >
         </div>
     </div>
@@ -90,7 +92,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <button class="flex items-center gap-2 text-primary font-headline font-bold text-sm">
-                        View Case Study <Icon
+                        {t('projects.view_case_study')} <Icon
                             name="material-symbols:arrow-outward"
                             class="text-3xl font-headline font-bold"
                         />
@@ -106,8 +108,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <p class="text-on-surface-variant max-w-md">
-                        A spatial operating system architecture designed for high-performance AI data processing and
-                        immersive digital environments.
+                        {t('projects.p1.desc')}
                     </p>
                     <div class="flex gap-4 pt-4">
                         <span class="font-label text-[10px] uppercase text-secondary tracking-widest">React</span>
@@ -145,7 +146,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <button class="flex items-center gap-2 text-secondary font-headline font-bold text-sm">
-                        View Case Study <Icon
+                        {t('projects.view_case_study')} <Icon
                             name="material-symbols:arrow-outward"
                             class="text-3xl font-headline font-bold"
                         />
@@ -161,8 +162,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <p class="text-on-surface-variant max-w-md">
-                        Next-generation peer-to-peer communication framework built for decentralized high-bandwidth
-                        asset streaming.
+                        {t('projects.p2.desc')}
                     </p>
                     <div class="flex gap-4 pt-4">
                         <span class="font-label text-[10px] uppercase text-primary tracking-widest">Rust</span>
@@ -196,7 +196,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <button class="flex items-center gap-2 text-primary font-headline font-bold text-sm">
-                        View Case Study <Icon
+                        {t('projects.view_case_study')} <Icon
                             name="material-symbols:arrow-outward"
                             class="text-3xl font-headline font-bold"
                         />
@@ -212,8 +212,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <p class="text-on-surface-variant max-w-md">
-                        Auto-scaling cloud infrastructure that uses ML to predict traffic spikes and re-route global
-                        traffic in real-time.
+                        {t('projects.p3.desc')}
                     </p>
                     <div class="flex gap-4 pt-4">
                         <span class="font-label text-[10px] uppercase text-secondary tracking-widest">Kubernetes</span>
@@ -251,7 +250,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <button class="flex items-center gap-2 text-secondary font-headline font-bold text-sm">
-                        View Case Study <Icon
+                        {t('projects.view_case_study')} <Icon
                             name="material-symbols:arrow-outward"
                             class="text-3xl font-headline font-bold"
                         />
@@ -267,8 +266,7 @@ import { Icon } from 'astro-icon/components';
                         >
                     </div>
                     <p class="text-on-surface-variant max-w-md">
-                        Visualization tool for exploring high-dimensional latent spaces in large language models using
-                        VR interfaces.
+                        {t('projects.p4.desc')}
                     </p>
                     <div class="flex gap-4 pt-4">
                         <span class="font-label text-[10px] uppercase text-primary tracking-widest">Three.js</span>
@@ -292,50 +290,47 @@ import { Icon } from 'astro-icon/components';
             </div>
             <div class="md:w-1/2 space-y-6">
                 <span class="font-label uppercase text-[10px] tracking-[0.2em] text-primary block"
-                    >Systems &amp; Execution</span
+                    >{t('projects.hub.badge')}</span
                 >
-                <h2 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter leading-tight text-white">
-                    Engineering for the <span class="text-secondary italic">Digital Age.</span>
+                <h2 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter leading-tight text-white" set:html={t('projects.hub.title')}>
                 </h2>
                 <p class="text-on-surface-variant text-lg leading-relaxed">
-                    Our workflow bridges the gap between ambitious business goals and high-performance reality. By
-                    combining expert architectural oversight with specialized agent swarms, we deliver robust web
-                    systems that are both future-ready and results-oriented.
+                    {t('projects.hub.desc')}
                 </p>
                 <div class="pt-8">
                     <button
                         class="px-8 py-3 bg-white text-black font-headline font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors"
-                        >Start a Project</button
+                        >{t('hero.btn.start')}</button
                     >
                 </div>
             </div>
             <div class="md:w-1/2 grid grid-cols-2 gap-4">
                 <div class="bg-surface-container-highest/40 p-6 rounded-xl border border-white/5 space-y-4 text-white">
                     <Icon name="material-symbols:terminal" class="text-primary text-5xl mb-4" />
-                    <h4 class="font-headline font-bold">Automation First</h4>
+                    <h4 class="font-headline font-bold">{t('projects.hub.f1.title')}</h4>
                     <p class="text-xs text-on-surface-variant font-label leading-relaxed">
-                        Reducing manual friction through intelligent system scaffolding.
+                        {t('projects.hub.f1.desc')}
                     </p>
                 </div>
                 <div class="bg-surface-container-highest/40 p-6 rounded-xl border border-white/5 space-y-4 text-white">
                     <Icon name="material-symbols:query-stats" class="text-secondary text-5xl mb-4" />
-                    <h4 class="font-headline font-bold">Data Density</h4>
+                    <h4 class="font-headline font-bold">{t('projects.hub.f2.title')}</h4>
                     <p class="text-xs text-on-surface-variant font-label leading-relaxed">
-                        Visualizing complexity through high-fidelity editorial layouts.
+                        {t('projects.hub.f2.desc')}
                     </p>
                 </div>
                 <div class="bg-surface-container-highest/40 p-6 rounded-xl border border-white/5 space-y-4 text-white">
                     <Icon name="material-symbols:layers" class="text-primary text-5xl mb-4" />
-                    <h4 class="font-headline font-bold">Atmospheric UI</h4>
+                    <h4 class="font-headline font-bold">{t('projects.hub.f3.title')}</h4>
                     <p class="text-xs text-on-surface-variant font-label leading-relaxed">
-                        Layering light and shadow to create hierarchy without lines.
+                        {t('projects.hub.f3.desc')}
                     </p>
                 </div>
                 <div class="bg-surface-container-highest/40 p-6 rounded-xl border border-white/5 space-y-4 text-white">
                     <Icon name="material-symbols:bolt" class="text-secondary text-5xl mb-4" />
-                    <h4 class="font-headline font-bold">Sub-ms Speed</h4>
+                    <h4 class="font-headline font-bold">{t('projects.hub.f4.title')}</h4>
                     <p class="text-xs text-on-surface-variant font-label leading-relaxed">
-                        Optimizing for the critical path and perceptual performance.
+                        {t('projects.hub.f4.desc')}
                     </p>
                 </div>
             </div>

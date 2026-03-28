@@ -1,5 +1,6 @@
 ---
 // Contact.astro
+import { Icon } from 'astro-icon/components';
 ---
 <section class="py-32 relative overflow-hidden bg-background">
     <div class="absolute inset-0 z-0">
@@ -17,9 +18,9 @@
             </button>
         </form>
         <div class="mt-20 flex justify-center space-x-12 opacity-40 text-white">
-            <span class="material-symbols-outlined text-3xl" data-icon="alternate_email">alternate_email</span>
-            <span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
-            <span class="material-symbols-outlined text-3xl" data-icon="terminal">terminal</span>
+            <Icon name="material-symbols:alternate-email" class="text-5xl" />
+            <Icon name="material-symbols:code" class="text-5xl" />
+            <Icon name="material-symbols:terminal" class="text-5xl" />
         </div>
     </div>
 </section>

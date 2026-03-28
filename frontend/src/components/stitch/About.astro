@@ -1,6 +1,7 @@
 ---
 // About.astro
 import Me from '@assets/me-3.png';
+import { Icon } from 'astro-icon/components';
 ---
 
 <section id="about" class="pt-32 pb-24 px-8 md:px-16 lg:px-32 max-w-[1600px] mx-auto overflow-hidden">
@@ -135,10 +136,7 @@ import Me from '@assets/me-3.png';
                 <div
                     class="h-full glass-panel p-10 flex flex-col justify-between rounded-xl border border-outline-variant/15"
                 >
-                    <span
-                        class="material-symbols-outlined text-primary text-4xl"
-                        style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span
-                    >
+                    <Icon name="material-symbols:precision-manufacturing" class="text-primary text-5xl" />
                     <div>
                         <h4 class="font-headline text-3xl font-bold text-white mb-4 uppercase tracking-tighter">
                             Architectural Precision
@@ -155,7 +153,7 @@ import Me from '@assets/me-3.png';
                 <div
                     class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
                 >
-                    <span class="material-symbols-outlined text-secondary text-4xl">energy_program_saving</span>
+                    <Icon name="material-symbols:energy-program-saving" class="text-secondary text-5xl" />
                     <div>
                         <h4 class="font-headline text-2xl font-bold text-white mb-4 uppercase tracking-tighter">
                             Intelligent Automation
@@ -172,7 +170,7 @@ import Me from '@assets/me-3.png';
                 <div
                     class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
                 >
-                    <span class="material-symbols-outlined text-on-surface-variant text-4xl">architecture</span>
+                    <Icon name="material-symbols:architecture" class="text-on-surface-variant text-5xl" />
                     <div>
                         <h4 class="font-headline text-2xl font-bold text-white mb-4 uppercase tracking-tighter">
                             User-Centric AI
@@ -195,7 +193,7 @@ import Me from '@assets/me-3.png';
                     <div
                         class="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent p-10 flex flex-col justify-between"
                     >
-                        <span class="material-symbols-outlined text-primary-dim text-4xl">schema</span>
+                        <Icon name="material-symbols:schema" class="text-primary-dim text-5xl" />
                         <div>
                             <h4 class="font-headline text-3xl font-bold text-white mb-4 uppercase tracking-tighter">
                                 Scalable Infrastructure

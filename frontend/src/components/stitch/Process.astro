@@ -1,6 +1,10 @@
 ---
 // Process.astro
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="process" class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
@@ -8,14 +12,13 @@ import { Icon } from 'astro-icon/components';
     <div class="mb-32">
         <div class="flex flex-col md:flex-row items-end gap-8 mb-16">
             <div class="w-full md:w-2/3">
-                <span class="font-label text-primary uppercase tracking-[0.2em] text-[10px] mb-4 block">Methodology v4.0</span>
-                <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]">
-                    The AI-Augmented <br/><span class="text-primary">Workflow</span>
+                <span class="font-label text-primary uppercase tracking-[0.2em] text-[10px] mb-4 block">{t('process.hero.badge')}</span>
+                <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]" set:html={t('process.hero.title')}>
                 </h1>
             </div>
             <div class="w-full md:w-1/3 pb-4">
                 <p class="text-on-surface-variant text-lg font-light leading-relaxed">
-                    A systematic transformation of business requirements into high-performance AI systems. Expert-led strategy meets autonomous execution.
+                    {t('process.hero.description')}
                 </p>
             </div>
         </div>
@@ -26,7 +29,7 @@ import { Icon } from 'astro-icon/components';
             <div class="absolute bottom-12 left-12">
                 <div class="flex items-center gap-4 text-secondary">
                     <Icon name="material-symbols:schema" class="text-6xl" />
-                    <span class="font-label uppercase tracking-widest text-xs">System Status: Active</span>
+                    <span class="font-label uppercase tracking-widest text-xs">{t('process.status')}</span>
                 </div>
             </div>
         </div>
@@ -43,15 +46,15 @@ import { Icon } from 'astro-icon/components';
                 <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">01</span>
-                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">Phase 01: Human Strategy</span>
-                    <h3 class="font-headline text-3xl font-bold mb-6">Strategic Discovery</h3>
+                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p1.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p1.subtitle')}</h3>
                     <p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                        The Lead Architect defines the system's DNA. We map your unique business goals and technical requirements to create a human-verified strategy for high-performance results.
+                        {t('process.p1.desc')}
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">Business Logic Audit</span>
-                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">System Mapping</span>
-                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">Requirement Extraction</span>
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t1')}</span>
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t2')}</span>
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t3')}</span>
                     </div>
                 </div>
             </div>
@@ -72,17 +75,17 @@ import { Icon } from 'astro-icon/components';
                 <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">02</span>
-                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">Phase 02: Architecture</span>
-                    <h3 class="font-headline text-3xl font-bold mb-6">Scalable System Design</h3>
+                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p2.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p2.subtitle')}</h3>
                     <p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                        Designing for performance and future-readiness. We architect the front-end, cloud infrastructure, and AI integration loops to ensure your system scales seamlessly from day one.
+                        {t('process.p2.desc')}
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-xs font-label text-on-surface">
-                            <Icon name="material-symbols:polyline" class="text-primary text-lg" /> Agent-Generated Logic Flow
+                            <Icon name="material-symbols:polyline" class="text-primary text-lg" /> {t('process.p2.l1')}
                         </li>
                         <li class="flex items-center gap-3 text-xs font-label text-on-surface">
-                            <Icon name="material-symbols:view-quilt" class="text-primary text-lg" /> Atomic Hierarchies
+                            <Icon name="material-symbols:view-quilt" class="text-primary text-lg" /> {t('process.p2.l2')}
                         </li>
                     </ul>
                 </div>
@@ -98,19 +101,19 @@ import { Icon } from 'astro-icon/components';
                 <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">03</span>
-                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">Phase 03: Build</span>
-                    <h3 class="font-headline text-3xl font-bold mb-6">AI-Augmented Execution</h3>
+                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p3.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p3.subtitle')}</h3>
                     <p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                        Our specialized Agent Swarms execute the architectural plan at 10x human speed. Guided by the Architect, we build robust codebases and integrated AI features with unmatched precision.
+                        {t('process.p3.desc')}
                     </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-surface-container-highest rounded-lg">
-                            <span class="text-primary font-headline text-xl block mb-1">Agent-Optimized</span>
-                            <span class="text-[9px] font-label text-on-surface-variant uppercase">Visual Latency</span>
+                            <span class="text-primary font-headline text-xl block mb-1">{t('process.p3.g1.title')}</span>
+                            <span class="text-[9px] font-label text-on-surface-variant uppercase">{t('process.p3.g1.desc')}</span>
                         </div>
                         <div class="p-4 bg-surface-container-highest rounded-lg">
-                            <span class="text-secondary font-headline text-xl block mb-1">Fluid</span>
-                            <span class="text-[9px] font-label text-on-surface-variant uppercase">Interaction Flow</span>
+                            <span class="text-secondary font-headline text-xl block mb-1">{t('process.p3.g2.title')}</span>
+                            <span class="text-[9px] font-label text-on-surface-variant uppercase">{t('process.p3.g2.desc')}</span>
                         </div>
                     </div>
                 </div>
@@ -134,10 +137,10 @@ import { Icon } from 'astro-icon/components';
                 <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">04</span>
-                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">Phase 04: Human Oversight</span>
-                    <h3 class="font-headline text-3xl font-bold mb-6">Quality & Launch</h3>
+                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p4.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p4.subtitle')}</h3>
                     <p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                        Every system undergoes a rigorous human audit. We ensure all AI-executed components meet our Lead Architect's high standards for security, speed, and reliability.
+                        {t('process.p4.desc')}
                     </p>
                     <div class="flex items-center gap-6">
                         <div class="flex -space-x-3">
@@ -145,7 +148,7 @@ import { Icon } from 'astro-icon/components';
                             <div class="w-8 h-8 rounded-full border border-background bg-secondary-container flex items-center justify-center text-[10px] text-on-secondary-container font-black">TS</div>
                             <div class="w-8 h-8 rounded-full border border-background bg-surface-bright flex items-center justify-center text-[10px] text-on-surface font-black">TW</div>
                         </div>
-                        <span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Agent Engine: 100%</span>
+                        <span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">{t('process.p4.engine')}</span>
                     </div>
                 </div>
             </div>
@@ -167,18 +170,17 @@ import { Icon } from 'astro-icon/components';
     <div class="mt-48">
         <div class="bg-surface-container-low rounded-xl p-16 md:p-24 text-center border border-outline-variant/10 relative overflow-hidden">
             <div class="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5"></div>
-            <h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 relative z-10 tracking-tight text-white">
-                Ready to Initiate <br/> Your <span class="text-primary">Digital Evolution?</span>
+            <h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 relative z-10 tracking-tight text-white" set:html={t('process.cta.title')}>
             </h2>
             <p class="text-on-surface-variant max-w-xl mx-auto mb-12 relative z-10 font-body text-lg">
-                The protocol is ready. Let's map your brand's future architecture through a focused consultation.
+                {t('process.cta.desc')}
             </p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
                 <button class="bg-primary hover:bg-primary-dim text-on-primary-fixed px-12 py-5 rounded-md font-label text-xs uppercase tracking-[0.2em] font-black transition-all transform hover:scale-105">
-                    Start a Consultation
+                    {t('process.cta.btn1')}
                 </button>
                 <button class="border border-outline-variant/30 hover:bg-surface-container-highest px-12 py-5 text-white rounded-md font-label text-xs uppercase tracking-[0.2em] font-black transition-all">
-                    View Past Work
+                    {t('process.cta.btn2')}
                 </button>
             </div>
         </div>

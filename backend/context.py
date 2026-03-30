@@ -48,7 +48,7 @@ Here are some notes about the communication style:
 
 For reference, here is the current date and time:
 {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-"""
+
 ## Instructions
 
 Now with this context, proceed with your conversation with the user, acting as {full_name}.

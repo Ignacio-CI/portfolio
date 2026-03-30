@@ -1,5 +1,6 @@
 <script lang="ts">
     import { untrack, tick } from "svelte";
+    import DOMPurify from "dompurify";
 
     interface Message {
         id: string;
@@ -95,12 +96,13 @@
 
             const idx = messages.findIndex((m) => m.id === assistantId);
             if (idx !== -1) {
-                // Formatting AI response with prefix explicitly applied for context?
-                // Actually the existing implementation didn't prefix the AI subsequent messages.
-                // Let's add the aiPrefix so it feels like the same AI system responding.
-                messages[idx] = { 
-                    ...messages[idx], 
-                    content: `<span class="text-primary-dim">${aiPrefix}</span> ${data.response}`
+                const clean = DOMPurify.sanitize(data.response, {
+                    ALLOWED_TAGS: ["span", "br", "strong", "em"],
+                    ALLOWED_ATTR: ["class"],
+                });
+                messages[idx] = {
+                    ...messages[idx],
+                    content: `<span class="text-primary-dim">${aiPrefix}</span> ${clean}`,
                 };
             }
         } catch {

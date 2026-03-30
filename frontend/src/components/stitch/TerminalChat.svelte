@@ -1,6 +1,7 @@
 <script lang="ts">
     import { untrack, tick } from "svelte";
     import DOMPurify from "dompurify";
+    import { marked } from "marked";
 
     interface Message {
         id: string;
@@ -96,9 +97,10 @@
 
             const idx = messages.findIndex((m) => m.id === assistantId);
             if (idx !== -1) {
-                const clean = DOMPurify.sanitize(data.response, {
-                    ALLOWED_TAGS: ["span", "br", "strong", "em"],
-                    ALLOWED_ATTR: ["class"],
+                const html = await marked.parse(data.response);
+                const clean = DOMPurify.sanitize(html, {
+                    ALLOWED_TAGS: ["span", "br", "strong", "em", "p", "ul", "ol", "li", "code", "pre", "a", "h1", "h2", "h3", "h4"],
+                    ALLOWED_ATTR: ["class", "href", "target", "rel"],
                 });
                 messages[idx] = {
                     ...messages[idx],

@@ -45,7 +45,9 @@
     let isLoading = $state(false);
     let loadingMsg = $state("");
     let loadingInterval: ReturnType<typeof setInterval> | null = null;
-    let sessionId = $state<string | null>(null);
+    let sessionId = $state<string | null>(
+        typeof localStorage !== 'undefined' ? localStorage.getItem('terminal_session_id') : null
+    );
     let conversationEl = $state<HTMLDivElement | undefined>(undefined);
     let inputEl = $state<HTMLInputElement | undefined>(undefined);
 
@@ -120,6 +122,7 @@
             const data: { response: string; session_id: string } =
                 await res.json();
             sessionId = data.session_id;
+            localStorage.setItem('terminal_session_id', sessionId);
 
             const idx = messages.findIndex((m) => m.id === assistantId);
             if (idx !== -1) {
@@ -133,12 +136,20 @@
                     content: clean,
                 };
             }
-        } catch {
+        } catch (err) {
             const idx = messages.findIndex((m) => m.id === assistantId);
             if (idx !== -1) {
+                let errorMsg = 'Unexpected error. Please try again.';
+                if (err instanceof TypeError) {
+                    errorMsg = 'Network error — swarm unreachable. Check your connection.';
+                } else if (err instanceof SyntaxError) {
+                    errorMsg = 'Malformed response from swarm. Please try again.';
+                } else if (err instanceof Error && err.message.startsWith('HTTP')) {
+                    errorMsg = `Swarm returned ${err.message}. Please try again later.`;
+                }
                 messages[idx] = {
                     ...messages[idx],
-                    content: `<span class="text-error">Connection to swarm lost. Please try again later.</span>`,
+                    content: `<span class="text-error">${errorMsg}</span>`,
                 };
             }
         } finally {
@@ -162,7 +173,7 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-    class="glass-panel rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl flex flex-col h-[500px]"
+    class="glass-panel rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl flex flex-col h-[420px] md:h-[500px]"
     onclick={handleTerminalClick}
 >
     <!-- Terminal Header -->
@@ -181,14 +192,15 @@
     </div>
     <!-- Terminal Body -->
     <div
-        class="p-8 font-label text-sm md:text-base flex-1 overflow-y-auto overflow-x-hidden flex flex-col gap-6"
+        class="p-4 md:p-8 font-label text-sm md:text-base flex-1 overflow-y-auto overflow-x-hidden flex flex-col gap-6"
         bind:this={conversationEl}
     >
         <div class="space-y-6">
             {#each messages as message (message.id)}
                 {#if message.role === "user"}
                     <div class="flex gap-4">
-                        <span class="text-secondary font-bold shrink-0">{visitorLabel}</span>
+                        <span class="text-secondary font-bold shrink-0 hidden sm:block">{visitorLabel}</span>
+                        <span class="text-secondary font-bold shrink-0 sm:hidden">~$</span>
                         <span class="text-on-surface wrap-break-word whitespace-pre-wrap">{message.content}</span>
                     </div>
                 {:else}
@@ -207,7 +219,8 @@
 
             <!-- Active Input Field -->
             <div class="flex gap-4 items-center">
-                <span class="text-secondary font-bold shrink-0">{visitorLabel}</span>
+                <span class="text-secondary font-bold shrink-0 hidden sm:block">{visitorLabel}</span>
+                <span class="text-secondary font-bold shrink-0 sm:hidden">~$</span>
                 <input
                     class="bg-transparent border-none outline-none text-on-surface w-full focus:ring-0 p-0 font-label placeholder:text-on-surface-variant/30"
                     type="text"

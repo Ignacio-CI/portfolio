@@ -2,9 +2,24 @@
 // Projects.astro
 import { Icon } from 'astro-icon/components';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { stitchProjects } from '../../data/stitch-projects';
+import ProjectsGrid from './ProjectsGrid.svelte';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const projectsData = stitchProjects.map((p) => ({
+    ...p,
+    desc: t(p.descKey as Parameters<typeof t>[0]),
+}));
+
+const filterLabels = {
+    all: t('projects.filter.all'),
+    ai: t('projects.filter.ai'),
+    web: t('projects.filter.web'),
+    viz: t('projects.filter.viz'),
+    cloud: t('projects.filter.cloud'),
+};
 ---
 
 <section class="py-32 relative bg-surface-dim">
@@ -34,250 +49,17 @@ const t = useTranslations(lang);
         </div>
     </header>
 
-    <!-- Filter System -->
-    <div class="max-w-7xl mx-auto px-8 mb-12">
-        <div class="flex flex-wrap items-center gap-4 py-4 border-y border-outline-variant/10">
-            <span class="font-label text-[10px] uppercase tracking-widest text-zinc-500 mr-4"
-                >{t('projects.filter.by')}</span
-            >
-            <button
-                class="px-5 py-2 rounded-full border border-primary/40 text-primary font-label text-xs uppercase tracking-widest bg-primary/5"
-                >{t('projects.filter.all')}</button
-            >
-            <button
-                class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >{t('projects.filter.ai')}</button
-            >
-            <button
-                class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >{t('projects.filter.web')}</button
-            >
-            <button
-                class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >{t('projects.filter.viz')}</button
-            >
-            <button
-                class="px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest"
-                >{t('projects.filter.cloud')}</button
-            >
-        </div>
-    </div>
-
-    <!-- Projects Grid -->
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Project Card 1 (Aether OS) -->
-        <article class="group relative flex flex-col gap-6">
-            <div
-                class="relative aspect-16/10 overflow-hidden rounded-xl bg-surface-container-low border border-outline-variant/10 group-hover:border-primary/30 transition-all duration-500"
-            >
-                <img
-                    alt="Aether OS interface design"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUdgFyGkWrJgXdO3iu_8EztVxSsksGKEuGLHRGcNsf3ZG-zQxRw9qKecX_-sOIboRAESJ0z5iu9r2WJ-stUixGJFG3yNWHDZS4mGZb7508eupl70CDnBzUxlAz8BeiH2o4ToENkwqSomwoZ3Af5P9R3g4pVo293dpuvQNJkSQtQWgPwz64ffNnQexQeIYePd4t-x13qrvNqpy0swdd9ooTmCyR1Ztkr5LDq17rs6bhyEegIJ7ivuq8Lmcrzh-A2xgrFK2pnvRJGEGd"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-60">
-                </div>
-                <div
-                    class="absolute bottom-6 left-6 right-6 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-                >
-                    <div class="flex gap-2">
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Neural Engine</span
-                        >
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Spatial UI</span
-                        >
-                    </div>
-                    <button class="flex items-center gap-2 text-primary font-headline font-bold text-sm">
-                        {t('projects.view_case_study')} <Icon
-                            name="material-symbols:arrow-outward"
-                            class="text-3xl font-headline font-bold"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-3">
-                        <h3 class="text-3xl font-headline font-bold tracking-tight text-white">Aether OS</h3>
-                        <span class="font-label text-[10px] text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded"
-                            >2026</span
-                        >
-                    </div>
-                    <p class="text-on-surface-variant max-w-md">
-                        {t('projects.p1.desc')}
-                    </p>
-                    <div class="flex gap-4 pt-4">
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">React</span>
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">TensorFlow</span>
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">WebGPU</span>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project Card 2 (Lumina Protocol) -->
-        <article class="group relative flex flex-col gap-6 mt-0 md:mt-24">
-            <div
-                class="relative aspect-16/10 overflow-hidden rounded-xl bg-surface-container-low border border-outline-variant/10 group-hover:border-secondary/30 transition-all duration-500"
-            >
-                <img
-                    alt="Lumina Protocol data visualization"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK7TBuCCZYvhXtK3-yTCWVPil6LA6ru2Ts3MH9u4gFuaDxyX7vERSVj2J8lBEAEnnb27jrnlcw4VpvBIKn3h59yJBW6uq6PdGEDJ5iTxB5n2lPPSgKgZWu7SDyKeHD-P4RHJQ6mqn3sv6ni9nr3pHtWhZzWT7xrPGDmF__uI9_qDd1LodXusHXs3TUfee7fKvOhiPib0KnBO2fXI54-sp5RhtNkItCihERCIAsFd6GnxFuIsdgucbEakoFnJ19EUdkBVmPasA_3voH"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-60">
-                </div>
-                <div
-                    class="absolute bottom-6 left-6 right-6 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-                >
-                    <div class="flex gap-2">
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Web Arch</span
-                        >
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Protocol</span
-                        >
-                    </div>
-                    <button class="flex items-center gap-2 text-secondary font-headline font-bold text-sm">
-                        {t('projects.view_case_study')} <Icon
-                            name="material-symbols:arrow-outward"
-                            class="text-3xl font-headline font-bold"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-3">
-                        <h3 class="text-3xl font-headline font-bold tracking-tight text-white">Lumina Protocol</h3>
-                        <span class="font-label text-[10px] text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded"
-                            >2025</span
-                        >
-                    </div>
-                    <p class="text-on-surface-variant max-w-md">
-                        {t('projects.p2.desc')}
-                    </p>
-                    <div class="flex gap-4 pt-4">
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">Rust</span>
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">Next.js</span>
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">AWS Edge</span>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project Card 3 (Synapse V3) -->
-        <article class="group relative flex flex-col gap-6">
-            <div
-                class="relative aspect-16/10 overflow-hidden rounded-xl bg-surface-container-low border border-outline-variant/10 group-hover:border-primary/30 transition-all duration-500"
-            >
-                <img
-                    alt="Server room abstract tech"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjzpE0SotKXRkGEQrYC1ruT_3coR1uX-J8Js9ectKvsNoqspaA7NZBMFASjZY-I3dyyghi1rfILYV8MIzBiVVimdPEiKcxGeJOXJv6A2YAmmJ4tIHf8vJckpDQbapqjM1HXdXQRpTOZ6Fl_dvujRD1Pm2b6iobgfxwgLayrwXTHDjXTPW64DFI8UCoK8HBs_L9WgVJW9kz9FnmTntq5RVxmXr55Gx09yD7h_5tqnSTvA9jLcJONdumviiM4m5kzhiXXsWFeWoh2tpz"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-60">
-                </div>
-                <div
-                    class="absolute bottom-6 left-6 right-6 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-                >
-                    <div class="flex gap-2">
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Cloud Architecture</span
-                        >
-                    </div>
-                    <button class="flex items-center gap-2 text-primary font-headline font-bold text-sm">
-                        {t('projects.view_case_study')} <Icon
-                            name="material-symbols:arrow-outward"
-                            class="text-3xl font-headline font-bold"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-3">
-                        <h3 class="text-3xl font-headline font-bold tracking-tight text-white">Synapse V3</h3>
-                        <span class="font-label text-[10px] text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded"
-                            >2025</span
-                        >
-                    </div>
-                    <p class="text-on-surface-variant max-w-md">
-                        {t('projects.p3.desc')}
-                    </p>
-                    <div class="flex gap-4 pt-4">
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">Kubernetes</span>
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">Go</span>
-                        <span class="font-label text-[10px] uppercase text-secondary tracking-widest">Prometheus</span>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Project Card 4 (Void Mapper) -->
-        <article class="group relative flex flex-col gap-6 mt-0 md:mt-24">
-            <div
-                class="relative aspect-16/10 overflow-hidden rounded-xl bg-surface-container-low border border-outline-variant/10 group-hover:border-secondary/30 transition-all duration-500"
-            >
-                <img
-                    alt="Abstract data map"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGC0MCfTMEdC-g8tUIa1BjWh2CrrHJ3NiavRfST2w4zscHoe6QBXjV0A8ggtWiAvw64rbVwXPiqouyeNyDJwnQiMiM_c3cgTIl72y0w77WWWoaW0xc2u6pBypcrz348GLDGGLO8J5jxz5EBkO1DN553__8r8pne3mAqJMKyWJ7zUXQm0GGek2LZTJUOkaHzS7ZBr8q756SZKGmR3jbxJwqolBllWeOxYFzVmSrmsbt8JVgdshONoIbIpP_HORyLOvNEPA3nm6AfTYQ"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-60">
-                </div>
-                <div
-                    class="absolute bottom-6 left-6 right-6 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
-                >
-                    <div class="flex gap-2">
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Data Viz</span
-                        >
-                        <span
-                            class="px-3 py-1 rounded-full glass-panel border border-white/10 text-[10px] font-label uppercase text-white"
-                            >Analytics</span
-                        >
-                    </div>
-                    <button class="flex items-center gap-2 text-secondary font-headline font-bold text-sm">
-                        {t('projects.view_case_study')} <Icon
-                            name="material-symbols:arrow-outward"
-                            class="text-3xl font-headline font-bold"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-3">
-                        <h3 class="text-3xl font-headline font-bold tracking-tight text-white">Void Mapper</h3>
-                        <span class="font-label text-[10px] text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded"
-                            >2025</span
-                        >
-                    </div>
-                    <p class="text-on-surface-variant max-w-md">
-                        {t('projects.p4.desc')}
-                    </p>
-                    <div class="flex gap-4 pt-4">
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">Three.js</span>
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">Python</span>
-                        <span class="font-label text-[10px] uppercase text-primary tracking-widest">Unity</span>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+    <ProjectsGrid
+        client:visible
+        projects={projectsData}
+        filterLabels={filterLabels}
+        viewCaseStudy={t('projects.view_case_study')}
+    />
 
     <!-- The Systems Hub: Technical Philosophy -->
     <div class="max-w-7xl mx-auto px-8 mt-32">
         <div
-            class="relative w-full rounded-2xl overflow-hidden glass-panel border border-outline-variant/10 p-12 md:p-24 flex flex-col md:flex-row gap-12 items-center"
+            class="relative w-full rounded-2xl overflow-hidden glass-panel border border-outline-variant/10 p-8 md:p-16 lg:p-24 flex flex-col md:flex-row gap-12 items-center"
         >
             <!-- Background animated glow -->
             <div class="absolute inset-0 -z-10 overflow-hidden">
@@ -300,7 +82,7 @@ const t = useTranslations(lang);
                     >
                 </div>
             </div>
-            <div class="md:w-1/2 grid grid-cols-2 gap-4">
+            <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-surface-container-highest/40 p-6 rounded-xl border border-white/5 space-y-4 text-white">
                     <Icon name="material-symbols:terminal" class="text-primary text-5xl mb-4" />
                     <h4 class="font-headline font-bold">{t('projects.hub.f1.title')}</h4>

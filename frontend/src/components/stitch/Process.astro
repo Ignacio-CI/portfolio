@@ -23,7 +23,7 @@ const t = useTranslations(lang);
             </div>
         </div>
         <!-- Atmospheric Visual -->
-        <div class="relative w-full h-[400px] overflow-hidden rounded-xl border border-outline-variant/15">
+        <div class="relative w-full h-[220px] md:h-[400px] overflow-hidden rounded-xl border border-outline-variant/15">
             <img alt="Abstract neural network rendering" class="w-full h-full object-cover opacity-50" data-alt="Abstract complex 3D wireframe mesh nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFudJuUOF910So31NTlQUgBZGjtiLlXCSNC3_MBc0cgMLNktNxgosLELLG8rLmAvDkYnPB4sYBB0VySlLrmxPI3BqDI3hRTo-byboH98X00Aiglp4rNXkfPnNC27mpD1qyrQ1jw3MgxraxOYMk2m7UwtBny2EdUUXhvDRziTcpoi1yP-0l4eWX4gOPOFdmInwofvGYpTUTXetS-edXWHkpq5v-mT0ovsG8cLJXDiTJVSEsAFBzPHOawn4eJRIBaAJ_oavnFgq5M5-W"/>
             <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"></div>
             <div class="absolute bottom-12 left-12">
@@ -36,14 +36,14 @@ const t = useTranslations(lang);
     </div>
     
     <!-- Process Timeline (Asymmetric Layout) -->
-    <div class="space-y-48 relative">
+    <div class="space-y-16 lg:space-y-48 relative">
         <!-- Central Vertical Guide (Ghost Border) -->
         <div class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/10 hidden lg:block transform -translate-x-1/2"></div>
         
         <!-- Step 01 -->
         <div class="relative flex flex-col lg:flex-row items-center">
             <div class="lg:w-1/2 pr-0 lg:pr-24 mb-12 lg:mb-0">
-                <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">01</span>
                     <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p1.title')}</span>
@@ -72,7 +72,7 @@ const t = useTranslations(lang);
         <!-- Step 02 -->
         <div class="relative flex flex-col lg:flex-row-reverse items-center">
             <div class="lg:w-1/2 pl-0 lg:pl-24 mb-12 lg:mb-0">
-                <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">02</span>
                     <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p2.title')}</span>
@@ -98,7 +98,7 @@ const t = useTranslations(lang);
         <!-- Step 03 -->
         <div class="relative flex flex-col lg:flex-row items-center">
             <div class="lg:w-1/2 pr-0 lg:pr-24 mb-12 lg:mb-0">
-                <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">03</span>
                     <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p3.title')}</span>
@@ -134,7 +134,7 @@ const t = useTranslations(lang);
         <!-- Step 04 -->
         <div class="relative flex flex-col lg:flex-row-reverse items-center">
             <div class="lg:w-1/2 pl-0 lg:pl-24 mb-12 lg:mb-0">
-                <div class="bg-surface-container-low p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">04</span>
                     <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p4.title')}</span>
@@ -167,7 +167,7 @@ const t = useTranslations(lang);
     </div>
 
     <!-- CTA Section -->
-    <div class="mt-48">
+    <div class="mt-16 lg:mt-48">
         <div class="bg-surface-container-low rounded-xl p-16 md:p-24 text-center border border-outline-variant/10 relative overflow-hidden">
             <div class="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5"></div>
             <h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 relative z-10 tracking-tight text-white" set:html={t('process.cta.title')}>

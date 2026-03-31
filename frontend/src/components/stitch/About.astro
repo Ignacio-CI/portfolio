@@ -96,13 +96,13 @@ const t = useTranslations(lang);
         </div>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
             <!-- Card 1 -->
-            <div class="md:col-span-8 group relative aspect-video md:aspect-auto">
+            <div class="md:col-span-8 group relative md:h-[400px]">
                 <div
                     class="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
                 >
                 </div>
                 <div
-                    class="h-full glass-panel p-10 flex flex-col justify-between rounded-xl border border-outline-variant/15"
+                    class="h-full min-h-[300px] glass-panel p-6 md:p-10 flex flex-col justify-between rounded-xl border border-outline-variant/15"
                 >
                     <Icon name="material-symbols:precision-manufacturing" class="text-primary text-5xl" />
                     <div>
@@ -116,9 +116,9 @@ const t = useTranslations(lang);
                 </div>
             </div>
             <!-- Card 2 -->
-            <div class="md:col-span-4 group h-[400px]">
+            <div class="md:col-span-4 group min-h-[280px] md:h-[400px]">
                 <div
-                    class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
+                    class="h-full bg-surface-container-low p-6 md:p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
                 >
                     <Icon name="material-symbols:energy-program-saving" class="text-secondary text-5xl" />
                     <div>
@@ -132,9 +132,9 @@ const t = useTranslations(lang);
                 </div>
             </div>
             <!-- Card 3 -->
-            <div class="md:col-span-4 group h-[400px]">
+            <div class="md:col-span-4 group min-h-[280px] md:h-[400px]">
                 <div
-                    class="h-full bg-surface-container-low p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
+                    class="h-full bg-surface-container-low p-6 md:p-10 flex flex-col justify-between rounded-xl border border-outline-variant/10 hover:bg-surface-container-high transition-colors"
                 >
                     <Icon name="material-symbols:architecture" class="text-on-surface-variant text-5xl" />
                     <div>
@@ -148,7 +148,7 @@ const t = useTranslations(lang);
                 </div>
             </div>
             <!-- Card 4 -->
-            <div class="md:col-span-8 group h-[400px]">
+            <div class="md:col-span-8 group min-h-[280px] md:h-[400px]">
                 <div class="h-full relative overflow-hidden rounded-xl border border-outline-variant/15">
                     <img
                         class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:scale-110 transition-transform duration-1000"

@@ -12,15 +12,15 @@ const t = useTranslations(currentLang);
                 <p class="font-label uppercase text-[8px] tracking-[0.05em] text-zinc-600">{t('footer.made_with')}</p>
             </div>
             <p class="font-label uppercase text-[10px] tracking-[0.05em] text-zinc-500">
-                © 2026 Ignace.dev — {t('footer.tagline')}
+                © {new Date().getFullYear()} Ignace.dev — {t('footer.tagline')}
             </p>
         </div>
-        <div class="flex items-center space-x-8 font-label uppercase text-[10px] tracking-[0.05em]">
+        <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-3 font-label uppercase text-[10px] tracking-[0.05em]">
             <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#">{t('footer.privacy')}</a>
             <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#">{t('footer.terms')}</a>
-            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#">Twitter</a>
-            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#">LinkedIn</a>
-            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#">GitHub</a>
+            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#" rel="noopener noreferrer">Twitter</a>
+            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#" rel="noopener noreferrer">LinkedIn</a>
+            <a class="text-zinc-500 hover:text-secondary transition-colors hover:-translate-y-0.5" href="#" rel="noopener noreferrer">GitHub</a>
         </div>
     </div>
 </footer>

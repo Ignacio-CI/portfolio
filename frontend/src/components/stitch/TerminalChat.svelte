@@ -13,14 +13,21 @@
     const {
         terminalHeader = "console v4.0.2 // ignace.dev",
         visitorLabel = "visitor@ignace:~$",
-        aiPrefix = "[Querying swarm...]",
         aiInitialBody = "Our model is a Hybrid Intelligence Collective.",
     } = $props<{
         terminalHeader?: string;
         visitorLabel?: string;
-        aiPrefix?: string;
         aiInitialBody?: string;
     }>();
+
+    const LOADING_MESSAGES = [
+        "[Querying swarm...]",
+        "[Scanning neural graph...]",
+        "[Routing through nodes...]",
+        "[Synthesizing response...]",
+        "[Analyzing context...]",
+        "[Activating language core...]",
+    ];
 
     const API_URL = import.meta.env.PUBLIC_API_URL ?? "http://localhost:8000";
 
@@ -29,20 +36,21 @@
             {
                 id: crypto.randomUUID(),
                 role: "assistant",
-                content: `<span class="text-primary-dim">${untrack(() => aiPrefix)}</span> ${untrack(() => aiInitialBody)}`,
+                content: untrack(() => aiInitialBody),
                 timestamp: new Date().toLocaleTimeString(),
             },
         ])
     );
     let input = $state("");
     let isLoading = $state(false);
+    let loadingMsg = $state("");
+    let loadingInterval: ReturnType<typeof setInterval> | null = null;
     let sessionId = $state<string | null>(null);
     let conversationEl = $state<HTMLDivElement | undefined>(undefined);
     let inputEl = $state<HTMLInputElement | undefined>(undefined);
 
     // Auto-scroll to bottom
     $effect(() => {
-        // Track array length and the last message's content to trigger scroll
         messages.length;
         if (messages.length > 0) messages[messages.length - 1].content;
 
@@ -50,8 +58,25 @@
             conversationEl.scrollTop = conversationEl.scrollHeight;
         }
     });
-    
-    // Focus input strictly on click inside terminal if the target isn't already the input
+
+    function pickLoadingMsg() {
+        return LOADING_MESSAGES[Math.floor(Math.random() * LOADING_MESSAGES.length)];
+    }
+
+    function startLoadingCycle() {
+        loadingMsg = pickLoadingMsg();
+        loadingInterval = setInterval(() => {
+            loadingMsg = pickLoadingMsg();
+        }, 1200);
+    }
+
+    function stopLoadingCycle() {
+        if (loadingInterval) {
+            clearInterval(loadingInterval);
+            loadingInterval = null;
+        }
+    }
+
     function handleTerminalClick() {
         if (inputEl) {
             inputEl.focus();
@@ -70,6 +95,7 @@
         });
         input = "";
         isLoading = true;
+        startLoadingCycle();
 
         const assistantId = crypto.randomUUID();
         messages.push({
@@ -104,7 +130,7 @@
                 });
                 messages[idx] = {
                     ...messages[idx],
-                    content: `<span class="text-primary-dim">${aiPrefix}</span> ${clean}`,
+                    content: clean,
                 };
             }
         } catch {
@@ -116,6 +142,7 @@
                 };
             }
         } finally {
+            stopLoadingCycle();
             isLoading = false;
             await tick();
             if (inputEl) {
@@ -134,7 +161,7 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div 
+<div
     class="glass-panel rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl flex flex-col h-[500px]"
     onclick={handleTerminalClick}
 >
@@ -153,7 +180,7 @@
         <div class="w-12"></div>
     </div>
     <!-- Terminal Body -->
-    <div 
+    <div
         class="p-8 font-label text-sm md:text-base flex-1 overflow-y-auto overflow-x-hidden flex flex-col gap-6"
         bind:this={conversationEl}
     >
@@ -169,7 +196,7 @@
                         <span class="text-primary font-bold shrink-0">ignace_ai:</span>
                         <div class="text-on-surface-variant leading-relaxed max-w-2xl wrap-break-word whitespace-pre-wrap">
                             {#if isLoading && message.content === ""}
-                                <span class="animate-pulse">_</span>
+                                <span class="text-primary-dim animate-pulse">{loadingMsg}</span>
                             {:else}
                                 {@html message.content}
                             {/if}
@@ -193,7 +220,6 @@
                 />
             </div>
             {#if isLoading}
-                <!-- Ensures the input field scrolls up smoothly when waiting for response -->
                 <div class="h-6"></div>
             {/if}
         </div>
@@ -201,7 +227,6 @@
 </div>
 
 <style>
-    /* Add smooth scrolling to conversation wrapper */
     .overflow-y-auto {
         scrollbar-width: thin;
         scrollbar-color: var(--color-outline-variant) transparent;

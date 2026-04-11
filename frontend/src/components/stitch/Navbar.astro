@@ -7,7 +7,6 @@ const t = useTranslations(currentLang);
 const translatePath = useTranslatedPath(currentLang);
 
 const navLinks = [
-    { href: '/', label: t('nav.home') },
     { href: '/projects', label: t('nav.projects') },
     { href: '/process', label: t('nav.process') },
     { href: '/about', label: t('nav.about') },
@@ -19,7 +18,7 @@ const currentPath = Astro.url.pathname;
 ---
 <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-none bg-linear-to-b from-black/80 to-transparent shadow-[0_0_40px_rgba(204,151,255,0.05)]">
     <div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter text-white font-headline">Ignace.dev</div>
+        <a href="/" class="text-2xl font-bold tracking-tighter text-white font-headline">Ignace.dev</a>
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-12 font-headline tracking-tight">
             {navLinks.map((link) => {

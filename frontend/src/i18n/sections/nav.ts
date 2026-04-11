@@ -4,7 +4,6 @@ export const nav = {
         'nav.process': 'Process',
         'nav.about': 'About',
         'nav.ensemble': 'Ensemble',
-        'nav.home': 'Home',
         'nav.login': 'Login',
         'nav.start_project': 'Start Project',
         'footer.made_with': 'Designed and built by Ignace.dev',
@@ -12,14 +11,14 @@ export const nav = {
         'footer.privacy': 'Privacy Policy',
         'footer.terms': 'Terms of Service',
         'site.title': 'Ignace.dev — The Digital Architect',
-        'site.description': 'High-end, modern personal and agency portfolio specializing in Web Development and AI Integration.',
+        'site.description':
+            'High-end, modern personal and agency portfolio specializing in Web Development and AI Integration.',
     },
     es: {
         'nav.projects': 'Proyectos',
         'nav.process': 'Proceso',
         'nav.about': 'Acerca',
         'nav.ensemble': 'Equipo',
-        'nav.home': 'Inicio',
         'nav.login': 'Entrar',
         'nav.start_project': 'Comenzar Proyecto',
         'footer.made_with': 'Diseñado y construido por Ignace.dev',
@@ -27,6 +26,7 @@ export const nav = {
         'footer.privacy': 'Política de Privacidad',
         'footer.terms': 'Términos de Servicio',
         'site.title': 'Ignace.dev — El Arquitecto Digital',
-        'site.description': 'Portafolio de agencia y personal moderno de alto nivel, especializado en Desarrollo Web e Integración de IA.',
+        'site.description':
+            'Portafolio de agencia y personal moderno de alto nivel, especializado en Desarrollo Web e Integración de IA.',
     },
 } as const;

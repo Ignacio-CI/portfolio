@@ -11,7 +11,7 @@
         "link": "https://agarsteget.se",
         "tags": [
             "SvelteKit",
-            "OpenAI API",
+            "AI",
             "TypeScript",
             "TailwindCSS",
             "Node.js",
@@ -31,7 +31,7 @@
         "link": "https://coompass.coop",
         "tags": [
             "SvelteKit",
-            "OpenAI API",
+            "AI",
             "TypeScript",
             "TailwindCSS",
             "Node.js",
@@ -54,8 +54,9 @@
             "Echarts",
             "TypeScript",
             "TailwindCSS",
-            "TanStack Query",
-            "Azure"
+            "Redux Toolkit",
+            "Redux Saga",
+            "TanStack Query"
         ]
     }
 ]

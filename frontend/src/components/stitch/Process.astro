@@ -1,0 +1,188 @@
+---
+// Process.astro
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="process" class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+    <!-- Hero Section -->
+    <div class="mb-32">
+        <div class="flex flex-col md:flex-row items-end gap-8 mb-16">
+            <div class="w-full md:w-2/3">
+                <span class="font-label text-primary uppercase tracking-[0.2em] text-[10px] mb-4 block">{t('process.hero.badge')}</span>
+                <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]" set:html={t('process.hero.title')}>
+                </h1>
+            </div>
+            <div class="w-full md:w-1/3 pb-4">
+                <p class="text-on-surface-variant text-lg font-light leading-relaxed">
+                    {t('process.hero.description')}
+                </p>
+            </div>
+        </div>
+        <!-- Atmospheric Visual -->
+        <div class="relative w-full h-[220px] md:h-[400px] overflow-hidden rounded-xl border border-outline-variant/15">
+            <img alt="Abstract neural network rendering" class="w-full h-full object-cover opacity-50" data-alt="Abstract complex 3D wireframe mesh nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFudJuUOF910So31NTlQUgBZGjtiLlXCSNC3_MBc0cgMLNktNxgosLELLG8rLmAvDkYnPB4sYBB0VySlLrmxPI3BqDI3hRTo-byboH98X00Aiglp4rNXkfPnNC27mpD1qyrQ1jw3MgxraxOYMk2m7UwtBny2EdUUXhvDRziTcpoi1yP-0l4eWX4gOPOFdmInwofvGYpTUTXetS-edXWHkpq5v-mT0ovsG8cLJXDiTJVSEsAFBzPHOawn4eJRIBaAJ_oavnFgq5M5-W"/>
+            <div class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"></div>
+            <div class="absolute bottom-12 left-12">
+                <div class="flex items-center gap-4 text-secondary">
+                    <Icon name="material-symbols:schema" class="text-6xl" />
+                    <span class="font-label uppercase tracking-widest text-xs">{t('process.status')}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Process Timeline (Asymmetric Layout) -->
+    <div class="space-y-16 lg:space-y-48 relative">
+        <!-- Central Vertical Guide (Ghost Border) -->
+        <div class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/10 hidden lg:block transform -translate-x-1/2"></div>
+        
+        <!-- Step 01 -->
+        <div class="relative flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 pr-0 lg:pr-24 mb-12 lg:mb-0">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">01</span>
+                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p1.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p1.subtitle')}</h3>
+                    <p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                        {t('process.p1.desc')}
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t1')}</span>
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t2')}</span>
+                        <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">{t('process.p1.t3')}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="relative w-80 h-80">
+                    <div class="absolute inset-0 border border-primary/20 rounded-full animate-pulse"></div>
+                    <div class="absolute inset-8 border border-secondary/20 rounded-full"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <Icon name="material-symbols:psychology" class="text-8xl text-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="relative flex flex-col lg:flex-row-reverse items-center">
+            <div class="lg:w-1/2 pl-0 lg:pl-24 mb-12 lg:mb-0">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">02</span>
+                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p2.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p2.subtitle')}</h3>
+                    <p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                        {t('process.p2.desc')}
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-xs font-label text-on-surface">
+                            <Icon name="material-symbols:polyline" class="text-primary text-lg" /> {t('process.p2.l1')}
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-label text-on-surface">
+                            <Icon name="material-symbols:view-quilt" class="text-primary text-lg" /> {t('process.p2.l2')}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <img alt="Blueprint schematic" class="w-full max-w-md grayscale opacity-40 rounded-lg border border-outline-variant/20 shadow-2xl" data-alt="Technical blueprint of a user interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuEwREIdh0yssvRSZR_LdssJBc3_YvCq-k2-UtfCOsgk8Pwq2P5lz3wDnFgWBVaJSkONTtA0-xCYEkxv5emsyguTE0DoH5E_1dmQDly8PcABP2wDgzlB2x63eH7fSLjJjgEWlYvwrv75IHCtPCVXfC4DCLffA2ceP-bOy90qrw6M-7GTGhHBZxQdrciGsLXZDgHNpcpYyhMJ_WNskCDkzDvFGb2KMDyjRDWOtRXpeyk1Ec-ja_xNPYweUMJLFY7V8VmyiCOIcfb0ta"/>
+            </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="relative flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 pr-0 lg:pr-24 mb-12 lg:mb-0">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -right-4">03</span>
+                    <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p3.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p3.subtitle')}</h3>
+                    <p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                        {t('process.p3.desc')}
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-surface-container-highest rounded-lg">
+                            <span class="text-primary font-headline text-xl block mb-1">{t('process.p3.g1.title')}</span>
+                            <span class="text-[9px] font-label text-on-surface-variant uppercase">{t('process.p3.g1.desc')}</span>
+                        </div>
+                        <div class="p-4 bg-surface-container-highest rounded-lg">
+                            <span class="text-secondary font-headline text-xl block mb-1">{t('process.p3.g2.title')}</span>
+                            <span class="text-[9px] font-label text-on-surface-variant uppercase">{t('process.p3.g2.desc')}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="w-full max-w-md aspect-square bg-linear-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center border border-outline-variant/20 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-[#262626]/40 backdrop-blur-xl opacity-40"></div>
+                    <Icon name="material-symbols:auto-awesome" class="text-9xl text-white/20 relative z-10" />
+                    <div class="absolute top-4 left-4 flex gap-2 z-10">
+                        <div class="w-2 h-2 rounded-full bg-primary"></div>
+                        <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                        <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="relative flex flex-col lg:flex-row-reverse items-center">
+            <div class="lg:w-1/2 pl-0 lg:pl-24 mb-12 lg:mb-0">
+                <div class="bg-surface-container-low p-6 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_0_40px_rgba(204,151,255,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="font-headline text-8xl font-black text-outline-variant/10 absolute -top-4 -left-4">04</span>
+                    <span class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-6 block">{t('process.p4.title')}</span>
+                    <h3 class="font-headline text-3xl font-bold mb-6">{t('process.p4.subtitle')}</h3>
+                    <p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                        {t('process.p4.desc')}
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <div class="flex -space-x-3">
+                            <div class="w-8 h-8 rounded-full border border-background bg-primary-container flex items-center justify-center text-[10px] text-on-primary-container font-black">JS</div>
+                            <div class="w-8 h-8 rounded-full border border-background bg-secondary-container flex items-center justify-center text-[10px] text-on-secondary-container font-black">TS</div>
+                            <div class="w-8 h-8 rounded-full border border-background bg-surface-bright flex items-center justify-center text-[10px] text-on-surface font-black">TW</div>
+                        </div>
+                        <span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">{t('process.p4.engine')}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="p-8 border border-outline-variant/15 rounded-xl bg-surface-container-lowest">
+                    <div class="font-mono text-[10px] text-secondary leading-relaxed">
+                        <p class="text-on-surface-variant opacity-50">// INITIALIZING AGENT DEPLOYMENT</p>
+                        <p>const swarm = new AgentSwarm();</p>
+                        <p>swarm.deploy(architecture);</p>
+                        <p>swarm.validate(&#123; mode: "autonomous" &#125;);</p>
+                        <p class="text-primary mt-2">SWARM.STATUS = "ACTIVE";</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 lg:mt-48">
+        <div class="bg-surface-container-low rounded-xl p-16 md:p-24 text-center border border-outline-variant/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5"></div>
+            <h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 relative z-10 tracking-tight text-white" set:html={t('process.cta.title')}>
+            </h2>
+            <p class="text-on-surface-variant max-w-xl mx-auto mb-12 relative z-10 font-body text-lg">
+                {t('process.cta.desc')}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+                <button class="bg-primary hover:bg-primary-dim text-on-primary-fixed px-12 py-5 rounded-md font-label text-xs uppercase tracking-[0.2em] font-black transition-all transform hover:scale-105 cursor-pointer">
+                    {t('process.cta.btn1')}
+                </button>
+                <button class="border border-outline-variant/30 hover:bg-surface-container-highest px-12 py-5 text-white rounded-md font-label text-xs uppercase tracking-[0.2em] font-black transition-all cursor-pointer">
+                    {t('process.cta.btn2')}
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

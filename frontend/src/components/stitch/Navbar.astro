@@ -1,0 +1,74 @@
+---
+import LanguagePicker from '../LanguagePicker.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const translatePath = useTranslatedPath(currentLang);
+
+const navLinks = [
+    { href: '/', label: t('nav.home') },
+    { href: '/projects', label: t('nav.projects') },
+    { href: '/process', label: t('nav.process') },
+    { href: '/about', label: t('nav.about') },
+];
+
+const currentPath = Astro.url.pathname;
+
+---
+<nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-none bg-linear-to-b from-black/80 to-transparent shadow-[0_0_40px_rgba(204,151,255,0.05)]">
+    <div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+        <div class="text-2xl font-bold tracking-tighter text-white font-headline">Ignace.dev</div>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-12 font-headline tracking-tight">
+            {navLinks.map((link) => {
+                const translatedHref = translatePath(link.href);
+                const cleanCurrentPath = currentPath === '/' ? currentPath : currentPath.replace(/\/$/, '');
+                const cleanTranslatedHref = translatedHref === '/' ? translatedHref : translatedHref.replace(/\/$/, '');
+                const isActive = cleanTranslatedHref === cleanCurrentPath;
+                return (
+                <a class={`${isActive ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-zinc-400 hover:text-secondary transition-all duration-300 '} cursor-pointer`} href={translatedHref}>{link.label}</a>
+                )
+            })}
+        </div>
+        <div class="flex items-center">
+            <LanguagePicker />
+            <div class="flex items-center space-x-6 ml-4">
+                <button class="hidden md:block text-zinc-400 hover:text-white font-label text-[10px] uppercase tracking-widest transition-colors cursor-pointer">{t('nav.login')}</button>
+                <button class="hidden md:block bg-linear-to-r from-primary to-primary-dim text-on-primary-fixed px-6 py-2.5 rounded-md font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20 cursor-pointer">
+                    {t('nav.start_project')}
+                </button>
+                <!-- Hamburger button (mobile only) -->
+                <button id="nav-toggle" class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="w-5 h-px bg-white transition-all duration-300"></span>
+                    <span class="w-5 h-px bg-white transition-all duration-300"></span>
+                    <span class="w-5 h-px bg-white transition-all duration-300"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="md:hidden border-t border-white/10 bg-black/90 backdrop-blur-xl px-8 py-6 flex flex-col gap-4 font-headline tracking-tight">
+        {navLinks.map((link) => {
+            const translatedHref = translatePath(link.href);
+            const cleanCurrentPath = currentPath === '/' ? currentPath : currentPath.replace(/\/$/, '');
+            const cleanTranslatedHref = translatedHref === '/' ? translatedHref : translatedHref.replace(/\/$/, '');
+            const isActive = cleanTranslatedHref === cleanCurrentPath;
+            return (
+                <a class={`text-lg ${isActive ? 'text-primary font-bold' : 'text-zinc-400'} cursor-pointer`} href={translatedHref}>{link.label}</a>
+            )
+        })}
+        <button class="bg-linear-to-r from-primary to-primary-dim text-on-primary-fixed px-6 py-3 rounded-md font-bold text-sm mt-2 w-full cursor-pointer">
+            {t('nav.start_project')}
+        </button>
+    </div>
+</nav>
+
+<script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+        const isOpen = menu?.classList.toggle('hidden') === false;
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+</script>

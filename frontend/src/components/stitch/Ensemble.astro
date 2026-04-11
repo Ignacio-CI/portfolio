@@ -1,0 +1,213 @@
+---
+const agents = [
+    {
+        title: "Insight",
+        subtitle: "Market Intel Agent",
+        icon: "visibility",
+        role: "Requirements Engineer",
+        skills: "TREND ANALYSIS, DATA MINING",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9LXBXcxqBhypjDYGAYaicM9LMETGLMliRC2POYJa47XE_4umEhQ109B5htDHAYUv8WwVCQQ3jNxleLqEzo08f2ABtPYm-FW7Qlr3mcsFbjkqq5mISSDA_hfruuG7-m9KfytfUTDKcEZ0itY_XVH62CPPbSITRfj-0tn7j7RpYvLxMIyErngH0v3kaKFU4a7_yzYDIpGfZrkeFFkeHKLFF3Ueezubx3clPtdb6x0vtuCol5DPpXvqZRfY_TBarlPv_AAzHL8s-0k2H"
+    },
+    {
+        title: "Strategy",
+        subtitle: "Planning & Logic",
+        icon: "tactic",
+        role: "Product Owner | Project Manager",
+        skills: "GAME THEORY, RISK MODELING",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBIA4VTk06JfuTVH3K8euicpwCOG1NaC1hz-lG4wUvFgT5w7FXCzMco40Q9U_LeztK3OLNw0hxeEXPKJzOhnkxPJLDJV8Yt4LC0RAvKuLvcbiQNU5U1yqMc_CM29ubyklMoyAn81aXyUeVR6vVoLuNILjatSpgalrYUhveUu_3GQr3ZM8rqeSj_oycCgzXeuoiTBi-LOR46QniPha4EeG1QegR1wg3boPfkyIheXgNTySOjaoB40WPe4Kv_fqjpSM4xDyIjHYUjnJ__"
+    },
+    {
+        title: "Prism",
+        subtitle: "Visual Synthesis",
+        icon: "filter_vintage",
+        role: "UI/UX Designer",
+        skills: "GENERATIVE DESIGN, COLOR THEORY",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLethcN-dDw18mSQBmSHUlgxUcxeDSgzlrXa5LLiP4FatagtLpH0zak__nCZc3plHEC3AlRoerDG7MMJh9mZ4bqRU26DDmGVLR2NozkG3Ue3xZoifgRhwRpdFwBXFrqgZxSYS5rwQQQLfVBtvpKz2NeMJWthUzgNtLF3BcWfDFWBYCOg76uCXXT0yTS-dcyH600Nqr_8ksDafzwo0DVwunZ4fh6h3R7WuP-jGuPnnKeVjz3udcsbcTQD8U1gyjgcz-aNN8wvkjo82N"
+    },
+    {
+        title: "Flux",
+        subtitle: "Motion Dynamics",
+        icon: "waves",
+        role: "Frontend Engineer",
+        skills: "KINETIC UI, LOTTIE RENDERING",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBMXYzJsgvjSU9h-jVknP0ygMV2e2-BbH_VvNFlSj4bELxA4bl9NNcA4CndYUpsDQpjxkiDlIeTLz47JEv6RTfz56BrBa_mryxQ-jjBmIv2IihmuRFsT0_gdUCgsN-uSQuwWk-GjwbmwvMkzYij6oxs65SL_-NVZl-k6m4zuxr67KMH9sTfSVuKJzoB-XhqpubgYcPDZC-_wQLxs198JMwCBxUq45VmA6QTmxDZUfOuobdgAIhuMlDEmMOyHFyJXMIv-cJFyWEC6MxX"
+    },
+    {
+        title: "Core",
+        subtitle: "Infrastructure",
+        icon: "database",
+        role: "Backend Engineer",
+        skills: "CLOUD NATIVE, SCALE OPS",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDo5_yW0objekna5MM3MYMvKYz86IFd2tfmpiFEMGUMFL7YTSEXQjvfYtIoy0RaVGHw7wTHsjAjmstHVrSSq56IO5q7H816vaAwEI1jbaiKu3-Wgvwab6LKJFsUtPrw2p9clgDi2ToJ1y6iNzFGSkx4A6hPvpRvtQNvr1HzNegIs8O6PS1kUla2KTIYelf246HzWhMrahwQVI9DlNx9vPk8id_YVO2otrxSsLZbUFsqEa5VxQKkxWztVW1AZkQJLv-PAKVOnr5K256w"
+    },
+    {
+        title: "Vector",
+        subtitle: "Data Architecture",
+        icon: "polyline",
+        role: "Data Engineer",
+        skills: "REACT, RUST, TYPESCRIPT",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_4uwxj2-JBVx-osyxTm3IhpKF6g1V5KMeziQ9s-6SAvwiJe6TgXAMGYdHseq_c02Gh7y9xouKKgV_3Hvx6nl9b0Wa9J4pMK4SvprgSBTXCJdCq6axsdowm4p7jjlBdsBXcVLQThhVfAAozF2Vm1GQ19nEZjsvnjUTZqj1egos4RX5jrM-cyHrg0Jer0TyVSdYue5DabERppiCQ6QJQywn39KLw8g0tkc1ZwSCJsylBvE6i-yEHG3awSKWUq7XciWIx02B9FvXpGJ5"
+    },
+    {
+        title: "Orbit",
+        subtitle: "Connectivity",
+        icon: "travel_explore",
+        role: "DevOps Engineer",
+        skills: "API MESH, WEBHOOKS",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0CkPEl_WcKc3I41SatjFHiWBbkjZdptLQCwe4HtAySrOIgRdm-awidiRDcuaeEIz66qE60tXH5rPDRKqGOzUnGA6xqrFisapWxZoHUP5ZVw6hjtGvq92lT-UxqNVm8lBGGyPbKhXDs4CHoNjGW_g_9S5cjGUgAQQMqZBbRokXFjEzi8Y0OMpGW876daFcBmz5KTvPOd6L-0DQmZJmyxTCUamKgWGhvlftC7Kz2nV_igHurH8a14DBF7PWfJwRXTUFQLDbwiriMFtz"
+    },
+    {
+        title: "Cipher",
+        subtitle: "Security & Ethos",
+        icon: "lock",
+        role: "QA &Security Engineer",
+        skills: "CRYPTOGRAPHY, ETHICAL ALIGNMENT",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWhQFlu89CnVk0PRDlKgTpGDGXM4INsw0ZSLX1uHWCAy6t8W15QqWtFgHDO5H_lto9du49hqANhmmdKxzg9wHZusqLjCcLxIp_2-oVQRdMlZWIjeM6mpm5wcePM39foBIswMEErEZ9j0et95Lps2obeJOQVcI0gQ4SCmv0tnGU6W0lZQItYMyNIrS-dEzyO8-436iLKMjUyoHKLRec8964ehkfUT5m3GME2S9GiOhzwAFSpFmE3lUoFXlSOorN4DmGGljNS_E_Y03L"
+    }
+];
+---
+
+<!-- Hero Section: The Hive Mind -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-22 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center xl:pt-16">
+    <div class="lg:col-span-7">
+        <h1
+            class="font-headline text-[3.5rem] md:text-[5rem] leading-[0.95] font-bold tracking-[-0.02em] uppercase mb-8"
+        >
+            THE<br />ENSEMBLE
+        </h1>
+        <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
+            A distributed intelligence network of specialized synthetic agents and human architects, harmonized to build
+            the future of digital ecosystems.
+        </p>
+    </div>
+    <div
+        class="lg:col-span-5 h-[400px] relative rounded-xl overflow-hidden bg-surface-container-low neural-hub-gradient border border-outline-variant/10"
+    >
+        <div class="absolute inset-0 backdrop-blur-xl flex items-center justify-center p-12">
+            <div class="text-center">
+                <div
+                    class="w-24 h-24 rounded-full border border-primary/20 flex items-center justify-center mb-6 mx-auto relative"
+                >
+                    <div class="absolute inset-0 rounded-full animate-pulse bg-primary/5"></div>
+                    <span class="material-symbols-outlined text-primary text-4xl" data-icon="hub">hub</span>
+                </div>
+                <div class="font-label text-[10px] tracking-widest text-secondary uppercase mb-2">
+                    NEURAL HUB STATUS
+                </div>
+                <div class="font-headline text-2xl text-white font-bold tracking-tight">Active Syncronization</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Architect Profile (Ignacio) -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-22">
+    <div class="p-12 bg-surface-container-low ghost-border rounded-xl flex flex-col md:flex-row gap-12 items-center">
+        <div
+            class="w-48 h-48 rounded-lg overflow-hidden shrink-0 grayscale hover:grayscale-0 transition-all duration-500"
+        >
+            <img
+                alt="Ignacio"
+                class="w-full h-full object-cover"
+                data-alt="Close-up portrait of a visionary digital architect in dark minimalist studio with dramatic cool lighting and subtle tech overlays"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD08GDy1r5h05-9Nt7a6eiWXoKGv8U6HRquIBeIVKE4N8QaY5fUmnRGMILfGufVNCpSRu2eIijjDRB2TfB4F2AQ1ciV2QXInfWAl_0EmtZIS0qlvrimZf2h9FDLhPyC9KsKOZ9gn4PVS-NWkaeolfOWMbFnb8mVDwLAIa9hnV6yOxsjtzPbx629ixAmAzNWhY-gemGV9NdTPOfNLYdxMe5kAZvvEoK_f-DUsqScIM2bZSGDOfY1E72L2zmerKXJvaXd4jjFQ6WCKzpi"
+            />
+        </div>
+        <div class="grow">
+            <div class="flex items-center gap-4 mb-4">
+                <span
+                    class="font-label text-[10px] tracking-widest text-secondary uppercase bg-secondary/10 px-3 py-1 rounded-full"
+                    >Orchestrator</span
+                >
+                <div class="h-px grow bg-outline-variant/20"></div>
+            </div>
+            <h2 class="font-headline text-4xl font-bold mb-4">Ignacio J.</h2>
+            <p class="font-body text-on-surface-variant text-lg max-w-3xl mb-8 leading-relaxed">
+                Founder and Chief Architect. Bridging the gap between hyper-technical AI capabilities and editorial
+                brand experiences. He directs the ensemble, ensuring every synthetic node aligns with human intuition.
+            </p>
+            <div class="flex flex-wrap gap-8">
+                <div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Expertise</div>
+                    <div class="font-headline text-white font-medium">System Architecture</div>
+                </div>
+                <div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Focus</div>
+                    <div class="font-headline text-white font-medium">Synthetic Intelligence</div>
+                </div>
+                <div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Location</div>
+                    <div class="font-headline text-white font-medium">Global / Remote</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Agent Grid (8 Nodes) -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-22">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+            agents.map((agent) => (
+                <div class="group relative overflow-hidden bg-surface-container-lowest p-8 rounded-lg card-glow hover:bg-surface-variant transition-all duration-300 border border-transparent hover:border-outline-variant/10 hover:cursor-crosshair">
+                    <div
+                        class="absolute inset-0 bg-center bg-cover opacity-10 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
+                        style={`background-image: url('${agent.image}')`}
+                    />
+                    <div class="relative z-10">
+                        <span
+                            class="material-symbols-outlined text-secondary mb-6 block drop-shadow-[0_0_8px_rgba(83,221,252,0.5)]"
+                            data-icon={agent.icon}
+                        >
+                            {agent.icon}
+                        </span>
+                        <h3 class="font-headline text-2xl font-bold mb-2 drop-shadow-md">{agent.title}</h3>
+                        <div class="font-label text-[10px] tracking-widest text-secondary uppercase mb-6 drop-shadow-sm">
+                            {agent.subtitle}
+                        </div>
+                        <ul class="font-label text-[10px] tracking-widest text-zinc-400 uppercase space-y-2 drop-shadow-sm">
+                            <li>ROLE: {agent.role}</li>
+                            <li>SKILLS: {agent.skills}</li>
+                        </ul>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="max-w-screen-2xl mx-auto px-8 mb-22 py-24 text-center bg-surface-dim rounded-xl">
+    <h2 class="font-headline text-[3.5rem] font-bold tracking-tight mb-8">READY TO DEPLOY?</h2>
+    <p class="font-body text-on-surface-variant max-w-2xl mx-auto mb-12">
+        The ensemble is standing by. Let us architect your next breakthrough.
+    </p>
+    <button
+        class="bg-linear-to-r from-primary to-primary-dim text-on-primary px-12 py-4 rounded-lg font-bold text-lg cursor-pointer hover:scale-95 hover:opacity-90 transition-all"
+    >
+        Initiate Project
+    </button>
+</section>
+
+<style is:global>
+    .material-symbols-outlined {
+        font-variation-settings:
+            'wght' 100,
+            'opsz' 24;
+        font-size: 20px;
+    }
+    .neural-hub-gradient {
+        background: radial-gradient(
+            circle at 50% 50%,
+            rgba(204, 151, 255, 0.15),
+            rgba(83, 221, 252, 0.1),
+            transparent 70%
+        );
+    }
+    .ghost-border {
+        box-shadow: inset 0 0 0 1px rgba(73, 72, 71, 0.15);
+    }
+    .card-glow:hover {
+        box-shadow: -10px -10px 40px -5px rgba(204, 151, 255, 0.1);
+    }
+</style>

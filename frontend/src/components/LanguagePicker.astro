@@ -26,7 +26,7 @@ const translatePath = useTranslatedPath(currentLang);
         return (
             <a 
                 href={cleanHref}
-                class={`text-[10px] font-label uppercase px-2 py-1 rounded-full transition-all duration-300 ${isActive ? 'bg-primary/20 text-primary font-bold shadow-[0_0_10px_rgba(83,221,252,0.3)]' : 'text-zinc-500 hover:text-zinc-300'}`}
+                class={`text-[10px] font-label uppercase px-2 py-1 rounded-full transition-all duration-300 ${isActive ? 'bg-primary/20 text-primary font-bold shadow-[0_0_10px_rgba(83,221,252,0.3)]' : 'text-zinc-500 hover:text-zinc-300'} cursor-pointer`}
                 aria-label={label}
                 title={label}
             >

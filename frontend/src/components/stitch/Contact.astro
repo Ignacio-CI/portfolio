@@ -18,7 +18,7 @@ const t = useTranslations(lang);
         <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
             <label for="contact-email" class="sr-only">Email</label>
             <input id="contact-email" class="flex-1 bg-surface-container border-none text-white font-label text-sm tracking-widest focus:ring-1 focus:ring-secondary py-4 px-6 rounded-md" placeholder={t('contact.placeholder')} type="email" autocomplete="email"/>
-            <button class="bg-white text-black font-bold font-body px-10 py-4 rounded-md hover:bg-secondary transition-colors uppercase text-sm tracking-widest" type="button">
+            <button class="bg-white text-black font-bold font-body px-10 py-4 rounded-md hover:bg-secondary transition-colors uppercase text-sm tracking-widest cursor-pointer" type="button">
                 {t('contact.btn')}
             </button>
         </form>

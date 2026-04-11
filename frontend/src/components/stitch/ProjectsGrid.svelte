@@ -40,8 +40,8 @@
         {#each filters as filter}
             <button
                 class={filter.key === activeFilter
-                    ? 'px-5 py-2 rounded-full border border-primary/40 text-primary font-label text-xs uppercase tracking-widest bg-primary/5'
-                    : 'px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest'}
+                    ? 'px-5 py-2 rounded-full border border-primary/40 text-primary font-label text-xs uppercase tracking-widest bg-primary/5 cursor-pointer'
+                    : 'px-5 py-2 rounded-full border border-outline-variant/20 text-on-surface-variant hover:border-secondary hover:text-secondary transition-all font-label text-xs uppercase tracking-widest cursor-pointer'}
                 onclick={() => (activeFilter = filter.key)}
             >
                 {filter.label}
@@ -77,7 +77,7 @@
                         {/each}
                     </div>
                     <button
-                        class={`flex items-center gap-2 font-headline font-bold text-sm ${project.accentColor === 'primary' ? 'text-primary' : 'text-secondary'}`}
+                        class={`flex items-center gap-2 font-headline font-bold text-sm ${project.accentColor === 'primary' ? 'text-primary' : 'text-secondary'} cursor-pointer`}
                     >
                         {viewCaseStudy} <span class="text-2xl">↗</span>
                     </button>

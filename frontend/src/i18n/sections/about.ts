@@ -36,31 +36,31 @@ export const about = {
         'about.profile.role': 'Arquitecto Principal',
         'about.profile.title': 'EL <br /><span class="text-primary">ARQUITECTO</span>',
         'about.profile.p1':
-            'Ignace es el Arquitecto Principal de una agencia aumentada por IA. Construimos sistemas web impulsados por IA que son de alto rendimiento por naturaleza y humanos por diseño, donde la estrategia aporta el alma y la IA aporta la velocidad.',
+            'Ignacio Cerda es el Arquitecto Principal de Ignace.dev, una agencia de desarrollo de software aumentada por IA. Junto a un equipo de Agentes Expertos, construimos sistemas web de alto rendimiento por naturaleza y humanos por diseño, donde la estrategia aporta el alma y la IA aporta la velocidad y precisión técnica.',
         'about.profile.p2':
-            'No solo usamos IA para chatear; usamos agentes especializados para construir. Cada línea de código está guiada por una visión estratégica humana para asegurar que cumple con los estándares empresariales de fiabilidad e innovación.',
-        'about.terminal.title': 'Interfaz con el Sistema',
-        'about.terminal.subtitle': 'Interacciona con el Gemelo Agente para obtener más información',
+            'No sólo usamos IA para chatear; trabajamos junto a ella para construir la próxima generación de software. Cada línea de código está guiada por una visión estratégica humana para asegurar que cumple con los estándares empresariales de fiabilidad e innovación.',
+        'about.terminal.title': 'Habla con el Arquitecto',
+        'about.terminal.subtitle': 'Escribe preguntas al Gemelo Digital de Ignacio para obtener más información',
         'about.terminal.header': 'Consola v4.0.2 // Ignace.dev',
         'about.terminal.user': '¿Cuál es su modelo de fuerza de trabajo?',
         'about.terminal.ai.prefix': '[Consultando enjambre...]',
         'about.terminal.ai.body':
-            'Nuestro modelo es un <span class="text-white font-medium">Colectivo de Inteligencia Híbrida</span>. El Arquitecto Principal proporciona el ADN estratégico, mientras que nuestro <span class="text-primary font-bold">Enjambre de Agentes</span> ejecuta con una velocidad y precisión 10 veces superior. No solo usamos IA; trabajamos junto a ella como miembros del equipo especializados.',
+            'Bienvenido a <span class="text-primary font-bold">Ignace.dev</span>, el hogar de la ingeniería de software aumentada por IA. Aquí, la estrategia se encuentra con la ejecución para crear sistemas que no solo funcionan, sino que <span class="font-semibold italic">piensan</span>. ¿Qué te gustaría saber?',
         'about.foundations.title': 'Cimientos <span class="text-primary">Principales</span>',
         'about.foundations.subtitle':
             'Los principios fundamentales que rigen cada sistema dentro del ecosistema Ignace.',
-        'about.foundations.standards': 'Estándares // 2024',
+        'about.foundations.standards': 'Estándares',
         'about.f1.title': 'Precisión Arquitectónica',
         'about.f1.desc':
             'Margen de error cero. Nuestros sistemas son probados bajo estrés frente a las demandas de entornos de gran escala, asegurando que cada componente sirva a un propósito empresarial claro.',
         'about.f2.title': 'Automatización Inteligente',
         'about.f2.desc':
-            'Uso de enjambres de agentes de IA para eliminar la fricción en los flujos de trabajo de ingeniería, permitiéndonos entregar sistemas complejos a velocidades sin precedentes.',
+            'Uso de equipo de agentes de IA expertos para eliminar la fricción en los flujos de trabajo de ingeniería, permitiéndonos entregar sistemas complejos a velocidades sin precedentes.',
         'about.f3.title': 'IA Centrada en el Usuario',
         'about.f3.desc':
-            'La IA debe ser invisible e intuitiva. Nos enfocamos en construir características que proporcionen valor real, yendo más allá de simples interfaces de chat para integraciones profundas.',
+            'La IA debe ser invisible e intuitiva. Nos enfocamos en construir características que proporcionen valor real, yendo más allá de simples chatbots para integraciones profundas.',
         'about.f4.title': 'Infraestructura Escalable',
         'about.f4.desc':
-            'Construido para el futuro. Aprovechamos tecnologías nativas de la nube y MLOps para asegurar que sus productos impulsados por IA puedan crecer de MVP a escala empresarial sin problemas.',
+            'Construido para el futuro. Aprovechamos tecnologías nativas de la nube para asegurar que sus productos crezcan a escala empresarial sin problemas.',
     },
 } as const;

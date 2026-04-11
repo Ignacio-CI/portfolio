@@ -5,6 +5,7 @@ import { contact } from './sections/contact';
 import { projects } from './sections/projects';
 import { process } from './sections/process';
 import { about } from './sections/about';
+import { ensemble } from './sections/ensemble';
 
 export const languages = {
     en: 'English',
@@ -24,6 +25,7 @@ export const ui = {
         ...projects.en,
         ...process.en,
         ...about.en,
+        ...ensemble.en,
     },
     es: {
         ...nav.es,
@@ -33,5 +35,6 @@ export const ui = {
         ...projects.es,
         ...process.es,
         ...about.es,
+        ...ensemble.es,
     },
 } as const;

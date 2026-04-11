@@ -1,83 +1,87 @@
 ---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
 const agents = [
     {
         title: "Insight",
-        subtitle: "Market Intel Agent",
+        subtitle: t('ensemble.agent.insight.subtitle'),
         icon: "visibility",
-        role: "Requirements Engineer",
-        skills: "TREND ANALYSIS, DATA MINING",
+        role: t('ensemble.agent.insight.role'),
+        skills: t('ensemble.agent.insight.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9LXBXcxqBhypjDYGAYaicM9LMETGLMliRC2POYJa47XE_4umEhQ109B5htDHAYUv8WwVCQQ3jNxleLqEzo08f2ABtPYm-FW7Qlr3mcsFbjkqq5mISSDA_hfruuG7-m9KfytfUTDKcEZ0itY_XVH62CPPbSITRfj-0tn7j7RpYvLxMIyErngH0v3kaKFU4a7_yzYDIpGfZrkeFFkeHKLFF3Ueezubx3clPtdb6x0vtuCol5DPpXvqZRfY_TBarlPv_AAzHL8s-0k2H"
     },
     {
         title: "Strategy",
-        subtitle: "Planning & Logic",
+        subtitle: t('ensemble.agent.strategy.subtitle'),
         icon: "tactic",
-        role: "Product Owner | Project Manager",
-        skills: "GAME THEORY, RISK MODELING",
+        role: t('ensemble.agent.strategy.role'),
+        skills: t('ensemble.agent.strategy.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBIA4VTk06JfuTVH3K8euicpwCOG1NaC1hz-lG4wUvFgT5w7FXCzMco40Q9U_LeztK3OLNw0hxeEXPKJzOhnkxPJLDJV8Yt4LC0RAvKuLvcbiQNU5U1yqMc_CM29ubyklMoyAn81aXyUeVR6vVoLuNILjatSpgalrYUhveUu_3GQr3ZM8rqeSj_oycCgzXeuoiTBi-LOR46QniPha4EeG1QegR1wg3boPfkyIheXgNTySOjaoB40WPe4Kv_fqjpSM4xDyIjHYUjnJ__"
     },
     {
         title: "Prism",
-        subtitle: "Visual Synthesis",
+        subtitle: t('ensemble.agent.prism.subtitle'),
         icon: "filter_vintage",
-        role: "UI/UX Designer",
-        skills: "GENERATIVE DESIGN, COLOR THEORY",
+        role: t('ensemble.agent.prism.role'),
+        skills: t('ensemble.agent.prism.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLethcN-dDw18mSQBmSHUlgxUcxeDSgzlrXa5LLiP4FatagtLpH0zak__nCZc3plHEC3AlRoerDG7MMJh9mZ4bqRU26DDmGVLR2NozkG3Ue3xZoifgRhwRpdFwBXFrqgZxSYS5rwQQQLfVBtvpKz2NeMJWthUzgNtLF3BcWfDFWBYCOg76uCXXT0yTS-dcyH600Nqr_8ksDafzwo0DVwunZ4fh6h3R7WuP-jGuPnnKeVjz3udcsbcTQD8U1gyjgcz-aNN8wvkjo82N"
     },
     {
         title: "Flux",
-        subtitle: "Motion Dynamics",
+        subtitle: t('ensemble.agent.flux.subtitle'),
         icon: "waves",
-        role: "Frontend Engineer",
-        skills: "KINETIC UI, LOTTIE RENDERING",
+        role: t('ensemble.agent.flux.role'),
+        skills: t('ensemble.agent.flux.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBMXYzJsgvjSU9h-jVknP0ygMV2e2-BbH_VvNFlSj4bELxA4bl9NNcA4CndYUpsDQpjxkiDlIeTLz47JEv6RTfz56BrBa_mryxQ-jjBmIv2IihmuRFsT0_gdUCgsN-uSQuwWk-GjwbmwvMkzYij6oxs65SL_-NVZl-k6m4zuxr67KMH9sTfSVuKJzoB-XhqpubgYcPDZC-_wQLxs198JMwCBxUq45VmA6QTmxDZUfOuobdgAIhuMlDEmMOyHFyJXMIv-cJFyWEC6MxX"
     },
     {
         title: "Core",
-        subtitle: "Infrastructure",
+        subtitle: t('ensemble.agent.core.subtitle'),
         icon: "database",
-        role: "Backend Engineer",
-        skills: "CLOUD NATIVE, SCALE OPS",
+        role: t('ensemble.agent.core.role'),
+        skills: t('ensemble.agent.core.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDo5_yW0objekna5MM3MYMvKYz86IFd2tfmpiFEMGUMFL7YTSEXQjvfYtIoy0RaVGHw7wTHsjAjmstHVrSSq56IO5q7H816vaAwEI1jbaiKu3-Wgvwab6LKJFsUtPrw2p9clgDi2ToJ1y6iNzFGSkx4A6hPvpRvtQNvr1HzNegIs8O6PS1kUla2KTIYelf246HzWhMrahwQVI9DlNx9vPk8id_YVO2otrxSsLZbUFsqEa5VxQKkxWztVW1AZkQJLv-PAKVOnr5K256w"
     },
     {
         title: "Vector",
-        subtitle: "Data Architecture",
+        subtitle: t('ensemble.agent.vector.subtitle'),
         icon: "polyline",
-        role: "Data Engineer",
-        skills: "REACT, RUST, TYPESCRIPT",
+        role: t('ensemble.agent.vector.role'),
+        skills: t('ensemble.agent.vector.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_4uwxj2-JBVx-osyxTm3IhpKF6g1V5KMeziQ9s-6SAvwiJe6TgXAMGYdHseq_c02Gh7y9xouKKgV_3Hvx6nl9b0Wa9J4pMK4SvprgSBTXCJdCq6axsdowm4p7jjlBdsBXcVLQThhVfAAozF2Vm1GQ19nEZjsvnjUTZqj1egos4RX5jrM-cyHrg0Jer0TyVSdYue5DabERppiCQ6QJQywn39KLw8g0tkc1ZwSCJsylBvE6i-yEHG3awSKWUq7XciWIx02B9FvXpGJ5"
     },
     {
         title: "Orbit",
-        subtitle: "Connectivity",
+        subtitle: t('ensemble.agent.orbit.subtitle'),
         icon: "travel_explore",
-        role: "DevOps Engineer",
-        skills: "API MESH, WEBHOOKS",
+        role: t('ensemble.agent.orbit.role'),
+        skills: t('ensemble.agent.orbit.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB0CkPEl_WcKc3I41SatjFHiWBbkjZdptLQCwe4HtAySrOIgRdm-awidiRDcuaeEIz66qE60tXH5rPDRKqGOzUnGA6xqrFisapWxZoHUP5ZVw6hjtGvq92lT-UxqNVm8lBGGyPbKhXDs4CHoNjGW_g_9S5cjGUgAQQMqZBbRokXFjEzi8Y0OMpGW876daFcBmz5KTvPOd6L-0DQmZJmyxTCUamKgWGhvlftC7Kz2nV_igHurH8a14DBF7PWfJwRXTUFQLDbwiriMFtz"
     },
     {
         title: "Cipher",
-        subtitle: "Security & Ethos",
+        subtitle: t('ensemble.agent.cipher.subtitle'),
         icon: "lock",
-        role: "QA &Security Engineer",
-        skills: "CRYPTOGRAPHY, ETHICAL ALIGNMENT",
+        role: t('ensemble.agent.cipher.role'),
+        skills: t('ensemble.agent.cipher.skills'),
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWhQFlu89CnVk0PRDlKgTpGDGXM4INsw0ZSLX1uHWCAy6t8W15QqWtFgHDO5H_lto9du49hqANhmmdKxzg9wHZusqLjCcLxIp_2-oVQRdMlZWIjeM6mpm5wcePM39foBIswMEErEZ9j0et95Lps2obeJOQVcI0gQ4SCmv0tnGU6W0lZQItYMyNIrS-dEzyO8-436iLKMjUyoHKLRec8964ehkfUT5m3GME2S9GiOhzwAFSpFmE3lUoFXlSOorN4DmGGljNS_E_Y03L"
     }
 ];
 ---
 
 <!-- Hero Section: The Hive Mind -->
-<section class="max-w-screen-2xl mx-auto px-8 mb-22 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center xl:pt-16">
+<section class="max-w-7xl mx-auto px-8 mb-22 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center xl:pt-16">
     <div class="lg:col-span-7">
         <h1
             class="font-headline text-[3.5rem] md:text-[5rem] leading-[0.95] font-bold tracking-[-0.02em] uppercase mb-8"
+            set:html={t('ensemble.hero.title')}
         >
-            THE<br />ENSEMBLE
         </h1>
         <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
-            A distributed intelligence network of specialized synthetic agents and human architects, harmonized to build
-            the future of digital ecosystems.
+            {t('ensemble.hero.subtitle')}
         </p>
     </div>
     <div
@@ -92,16 +96,16 @@ const agents = [
                     <span class="material-symbols-outlined text-primary text-4xl" data-icon="hub">hub</span>
                 </div>
                 <div class="font-label text-[10px] tracking-widest text-secondary uppercase mb-2">
-                    NEURAL HUB STATUS
+                    {t('ensemble.hub.label')}
                 </div>
-                <div class="font-headline text-2xl text-white font-bold tracking-tight">Active Syncronization</div>
+                <div class="font-headline text-2xl text-white font-bold tracking-tight">{t('ensemble.hub.status')}</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Architect Profile (Ignacio) -->
-<section class="max-w-screen-2xl mx-auto px-8 mb-22">
+<section class="max-w-7xl mx-auto px-8 mb-22">
     <div class="p-12 bg-surface-container-low ghost-border rounded-xl flex flex-col md:flex-row gap-12 items-center">
         <div
             class="w-48 h-48 rounded-lg overflow-hidden shrink-0 grayscale hover:grayscale-0 transition-all duration-500"
@@ -117,27 +121,26 @@ const agents = [
             <div class="flex items-center gap-4 mb-4">
                 <span
                     class="font-label text-[10px] tracking-widest text-secondary uppercase bg-secondary/10 px-3 py-1 rounded-full"
-                    >Orchestrator</span
+                    >{t('ensemble.ignacio.badge')}</span
                 >
                 <div class="h-px grow bg-outline-variant/20"></div>
             </div>
             <h2 class="font-headline text-4xl font-bold mb-4">Ignacio J.</h2>
             <p class="font-body text-on-surface-variant text-lg max-w-3xl mb-8 leading-relaxed">
-                Founder and Chief Architect. Bridging the gap between hyper-technical AI capabilities and editorial
-                brand experiences. He directs the ensemble, ensuring every synthetic node aligns with human intuition.
+                {t('ensemble.ignacio.desc')}
             </p>
             <div class="flex flex-wrap gap-8">
                 <div>
-                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Expertise</div>
-                    <div class="font-headline text-white font-medium">System Architecture</div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">{t('ensemble.ignacio.expertise.label')}</div>
+                    <div class="font-headline text-white font-medium">{t('ensemble.ignacio.expertise.value')}</div>
                 </div>
                 <div>
-                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Focus</div>
-                    <div class="font-headline text-white font-medium">Synthetic Intelligence</div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">{t('ensemble.ignacio.focus.label')}</div>
+                    <div class="font-headline text-white font-medium">{t('ensemble.ignacio.focus.value')}</div>
                 </div>
                 <div>
-                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">Location</div>
-                    <div class="font-headline text-white font-medium">Global / Remote</div>
+                    <div class="font-label text-[10px] tracking-widest text-zinc-600 uppercase mb-1">{t('ensemble.ignacio.location.label')}</div>
+                    <div class="font-headline text-white font-medium">{t('ensemble.ignacio.location.value')}</div>
                 </div>
             </div>
         </div>
@@ -145,7 +148,7 @@ const agents = [
 </section>
 
 <!-- Agent Grid (8 Nodes) -->
-<section class="max-w-screen-2xl mx-auto px-8 mb-22">
+<section class="max-w-7xl mx-auto px-8 mb-22">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
             agents.map((agent) => (
@@ -166,8 +169,8 @@ const agents = [
                             {agent.subtitle}
                         </div>
                         <ul class="font-label text-[10px] tracking-widest text-zinc-400 uppercase space-y-2 drop-shadow-sm">
-                            <li>ROLE: {agent.role}</li>
-                            <li>SKILLS: {agent.skills}</li>
+                            <li>{t('ensemble.agents.role')}: {agent.role}</li>
+                            <li>{t('ensemble.agents.skills')}: {agent.skills}</li>
                         </ul>
                     </div>
                 </div>
@@ -177,15 +180,15 @@ const agents = [
 </section>
 
 <!-- CTA Section -->
-<section class="max-w-screen-2xl mx-auto px-8 mb-22 py-24 text-center bg-surface-dim rounded-xl">
-    <h2 class="font-headline text-[3.5rem] font-bold tracking-tight mb-8">READY TO DEPLOY?</h2>
+<section class="max-w-7xl mx-auto px-8 mb-22 py-24 text-center bg-surface-dim rounded-xl">
+    <h2 class="font-headline text-[3.5rem] font-bold tracking-tight mb-8">{t('ensemble.cta.title')}</h2>
     <p class="font-body text-on-surface-variant max-w-2xl mx-auto mb-12">
-        The ensemble is standing by. Let us architect your next breakthrough.
+        {t('ensemble.cta.subtitle')}
     </p>
     <button
         class="bg-linear-to-r from-primary to-primary-dim text-on-primary px-12 py-4 rounded-lg font-bold text-lg cursor-pointer hover:scale-95 hover:opacity-90 transition-all"
     >
-        Initiate Project
+        {t('ensemble.cta.btn')}
     </button>
 </section>
 

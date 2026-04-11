@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
         </div>
     </div>
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-black/90 backdrop-blur-xl px-8 py-6 flex flex-col gap-4 font-headline tracking-tight">
+    <div id="mobile-menu" class="md:hidden border-t border-white/10 bg-black/90 backdrop-blur-xl px-8 py-6 flex flex-col gap-4 font-headline tracking-tight">
         {navLinks.map((link) => {
             const translatedHref = translatePath(link.href);
             const cleanCurrentPath = currentPath === '/' ? currentPath : currentPath.replace(/\/$/, '');
